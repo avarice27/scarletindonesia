@@ -1,11 +1,12 @@
+import logo from "@/assets/scarlet-logo.jpeg";
+
 export function Footer() {
   return (
     <footer className="px-6 md:px-20 py-14 border-t border-border bg-background">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
-          <a href="#top" className="flex items-center gap-2.5 mb-4">
-            <span className="grid place-items-center w-8 h-8 bg-primary text-primary-foreground font-display font-extrabold text-[15px]">S</span>
-            <span className="font-display font-bold tracking-[0.14em] text-base">SCARLET</span>
+          <a href="#top" className="inline-flex items-center gap-2.5 mb-4">
+            <img src={logo} alt="Scarlet Indonesia" className="h-10 w-auto object-contain" />
           </a>
           <p className="text-xs text-muted-foreground font-light leading-relaxed">Brand Activation Agency. Jakarta · since 2015.</p>
         </div>

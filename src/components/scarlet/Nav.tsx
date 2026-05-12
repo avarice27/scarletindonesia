@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import logo from "@/assets/scarlet-logo.jpeg";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -25,12 +26,7 @@ export function Nav() {
       }`}
     >
       <a href="#top" className="flex items-center gap-2.5 no-underline">
-        <span className="grid place-items-center w-8 h-8 bg-primary text-primary-foreground font-display font-extrabold text-[15px]">
-          S
-        </span>
-        <span className="font-display font-bold tracking-[0.14em] text-base text-foreground">
-          SCARLET
-        </span>
+        <img src={logo} alt="Scarlet Indonesia" className="h-9 md:h-10 w-auto object-contain" />
       </a>
       <ul className="hidden md:flex items-center gap-9 list-none">
         {links.map((l) => (
