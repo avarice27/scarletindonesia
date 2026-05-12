@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import logo from "@/assets/scarlet-logo.jpeg";
 
 const links = [
   { href: "#work", label: "Work" },
