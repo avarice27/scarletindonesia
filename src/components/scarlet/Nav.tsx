@@ -29,8 +29,8 @@ export function Nav() {
         <img
           src={logo}
           alt="Scarlet Indonesia"
-          className={`w-auto object-contain transition-all duration-400 ${
-            scrolled ? "h-7 sm:h-8 md:h-9" : "h-8 sm:h-9 md:h-10 lg:h-11"
+          className={`w-auto object-contain mix-blend-multiply transition-all duration-400 ${
+            scrolled ? "h-11 sm:h-12 md:h-14" : "h-14 sm:h-16 md:h-20 lg:h-24"
           }`}
         />
       </a>
