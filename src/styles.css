@@ -41,27 +41,29 @@
 :root {
   --radius: 0.5rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.18 0.02 20);
-  --ink: oklch(0.14 0.02 20);
-  --cream: oklch(0.96 0.025 80);
+  --foreground: oklch(0.28 0.04 35);          /* warm dark brown #673C34 derived */
+  --ink: oklch(0.28 0.04 35);
+  --ink-warm: oklch(0.36 0.06 38);            /* #673C34 */
+  --cream: oklch(0.93 0.05 85);               /* #FAE3B1 */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.02 20);
+  --card-foreground: oklch(0.28 0.04 35);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.02 20);
-  --primary: oklch(0.42 0.18 22);          /* #9C0412 scarlet */
-  --primary-foreground: oklch(0.98 0.01 80);
-  --primary-glow: oklch(0.55 0.22 25);     /* #CF1020 bright */
-  --secondary: oklch(0.96 0.025 80);       /* cream */
-  --secondary-foreground: oklch(0.18 0.02 20);
-  --muted: oklch(0.97 0.005 60);
-  --muted-foreground: oklch(0.45 0.02 30);
-  --accent: oklch(0.74 0.13 85);           /* gold */
-  --accent-foreground: oklch(0.18 0.02 20);
-  --destructive: oklch(0.55 0.22 25);
+  --popover-foreground: oklch(0.28 0.04 35);
+  --primary: oklch(0.40 0.14 22);             /* #7D2027 crimson */
+  --primary-foreground: oklch(0.97 0.03 85);
+  --primary-glow: oklch(0.60 0.18 40);        /* #CF5527 ember */
+  --secondary: oklch(0.93 0.05 85);           /* cream */
+  --secondary-foreground: oklch(0.28 0.04 35);
+  --muted: oklch(0.96 0.015 75);
+  --muted-foreground: oklch(0.45 0.04 38);
+  --accent: oklch(0.62 0.11 95);              /* #998731 gold */
+  --accent-foreground: oklch(0.18 0.02 30);
+  --sky: oklch(0.70 0.08 230);                /* #5FA8C2 */
+  --destructive: oklch(0.60 0.18 40);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.92 0.01 60);
-  --input: oklch(0.92 0.01 60);
-  --ring: oklch(0.42 0.18 22);
+  --border: oklch(0.90 0.02 75);
+  --input: oklch(0.90 0.02 75);
+  --ring: oklch(0.40 0.14 22);
 
   --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
   --gradient-hero: linear-gradient(180deg, oklch(1 0 0) 0%, var(--cream) 100%);
