@@ -5,8 +5,8 @@ export function Footer() {
     <footer className="px-6 md:px-20 py-14 border-t border-border bg-background">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
-          <a href="#top" className="inline-flex items-center gap-2.5 mb-4">
-            <img src={logo} alt="Scarlet Indonesia" className="h-10 w-auto object-contain" />
+          <a href="#top" className="inline-flex items-center mb-4">
+            <img src={logo} alt="Scarlet Indonesia" className="h-9 sm:h-10 md:h-11 w-auto object-contain" />
           </a>
           <p className="text-xs text-muted-foreground font-light leading-relaxed">Brand Activation Agency. Jakarta · since 2015.</p>
         </div>
