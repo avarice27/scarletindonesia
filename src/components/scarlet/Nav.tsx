@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/scarlet-logo.jpeg";
+import logo from "@/assets/scarlet-logo.png";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -29,7 +29,7 @@ export function Nav() {
         <img
           src={logo}
           alt="Scarlet Indonesia"
-          className={`w-auto object-contain mix-blend-multiply transition-all duration-400 ${
+          className={`w-auto object-contain transition-all duration-400 ${
             scrolled ? "h-11 sm:h-12 md:h-14" : "h-14 sm:h-16 md:h-20 lg:h-24"
           }`}
         />
