@@ -25,8 +25,14 @@ export function Nav() {
           : "py-6 px-6 md:px-20 bg-transparent"
       }`}
     >
-      <a href="#top" className="flex items-center gap-2.5 no-underline">
-        <img src={logo} alt="Scarlet Indonesia" className="h-9 md:h-10 w-auto object-contain" />
+      <a href="#top" className="flex items-center no-underline shrink-0">
+        <img
+          src={logo}
+          alt="Scarlet Indonesia"
+          className={`w-auto object-contain transition-all duration-400 ${
+            scrolled ? "h-7 sm:h-8 md:h-9" : "h-8 sm:h-9 md:h-10 lg:h-11"
+          }`}
+        />
       </a>
       <ul className="hidden md:flex items-center gap-9 list-none">
         {links.map((l) => (
