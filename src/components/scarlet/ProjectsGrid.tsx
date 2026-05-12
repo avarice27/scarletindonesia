@@ -8,8 +8,15 @@ const projects = [
 
 export function ProjectsGrid() {
   return (
-    <section id="work" className="px-6 md:px-20 py-24 md:py-32">
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 reveal">
+    <section id="work" className="relative overflow-hidden px-6 md:px-20 py-24 md:py-32">
+      <span
+        aria-hidden
+        className="text-ghost absolute -top-4 -left-3 md:-left-6 hidden sm:block"
+        style={{ fontSize: "clamp(140px, 20vw, 320px)" }}
+      >
+        Work
+      </span>
+      <div className="relative flex flex-col md:flex-row md:items-end md:justify-between gap-6 reveal">
         <div className="max-w-2xl">
           <span className="sec-label">Selected Work</span>
           <h2 className="font-display font-extrabold text-foreground mt-4 leading-[1.05]" style={{ fontSize: "clamp(34px, 4.5vw, 60px)" }}>
