@@ -83,6 +83,8 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.65 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 240px 240px;
   }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
 }
@@ -142,6 +144,37 @@
   z-index:-1;
 }
 .btn-sweep:hover::before { transform: scaleX(1); }
+
+/* Noise texture — editorial grain overlay */
+.bg-noise { position: relative; }
+.bg-noise::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  opacity: .06; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+.bg-noise > * { position: relative; z-index: 1; }
+
+/* Ghosted oversized numerals — editorial backdrop type */
+.text-ghost {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in oklab, var(--primary) 22%, transparent);
+  line-height: .8;
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+}
+.text-ghost-fill {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: color-mix(in oklab, var(--primary) 7%, transparent);
+  line-height: .8;
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+}
 
 /* Custom cursor */
 .cur, .curf { position: fixed; pointer-events:none; z-index:9999; border-radius:50%; top:0; left:0; }

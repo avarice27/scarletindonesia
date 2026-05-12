@@ -8,8 +8,15 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="px-6 md:px-20 py-24 md:py-32 bg-secondary/40">
-      <div className="max-w-3xl reveal">
+    <section id="services" className="relative overflow-hidden px-6 md:px-20 py-24 md:py-32 bg-secondary/40">
+      <span
+        aria-hidden
+        className="text-ghost-fill absolute -top-6 -right-6 md:-right-10 hidden sm:block"
+        style={{ fontSize: "clamp(140px, 22vw, 360px)" }}
+      >
+        Services
+      </span>
+      <div className="relative max-w-3xl reveal">
         <span className="sec-label">What We Do</span>
         <h2 className="font-display font-extrabold text-foreground mt-4 leading-[1.05]" style={{ fontSize: "clamp(34px, 4.5vw, 60px)" }}>
           Full-Service. <em className="not-italic text-primary">One Roof.</em>

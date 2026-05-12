@@ -11,17 +11,26 @@ export function Numbers() {
       {stats.map((s, i) => (
         <div
           key={i}
-          className={`p-10 md:p-14 ${i < stats.length - 1 ? "md:border-r" : ""} border-border hover:bg-secondary transition-colors reveal`}
+          className={`relative overflow-hidden p-10 md:p-14 ${i < stats.length - 1 ? "md:border-r" : ""} border-border hover:bg-secondary transition-colors reveal`}
           style={{ transitionDelay: `${i * 80}ms` }}
         >
-          <div className="font-display text-5xl md:text-6xl font-extrabold leading-none flex items-start text-foreground">
+          {/* Ghosted oversized numeral backdrop */}
+          <span
+            aria-hidden
+            className="text-ghost absolute -bottom-6 -right-3 select-none"
+            style={{ fontSize: "clamp(160px, 18vw, 240px)" }}
+          >
+            {s.n}
+          </span>
+
+          <div className="relative font-display text-5xl md:text-6xl font-extrabold leading-none flex items-start text-foreground">
             {s.n}
             <sup className="text-2xl text-primary mt-2 ml-0.5">{s.sup}</sup>
           </div>
-          <div className="text-[10px] tracking-[0.2em] uppercase mt-2 font-medium" style={{ color: "color-mix(in oklab, var(--accent) 70%, var(--ink))" }}>
+          <div className="relative text-[10px] tracking-[0.28em] uppercase mt-2 font-medium" style={{ color: "color-mix(in oklab, var(--accent) 70%, var(--ink))" }}>
             {s.label}
           </div>
-          <div className="text-xs text-muted-foreground font-light mt-1.5 leading-relaxed">{s.sub}</div>
+          <div className="relative text-xs text-muted-foreground font-light mt-1.5 leading-relaxed">{s.sub}</div>
         </div>
       ))}
     </section>
