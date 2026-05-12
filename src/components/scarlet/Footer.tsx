@@ -6,7 +6,7 @@ export function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
           <a href="#top" className="inline-flex items-center mb-4">
-            <img src={logo} alt="Scarlet Indonesia" className="h-9 sm:h-10 md:h-11 w-auto object-contain" />
+            <img src={logo} alt="Scarlet Indonesia" className="h-14 sm:h-16 md:h-20 w-auto object-contain mix-blend-multiply" />
           </a>
           <p className="text-xs text-muted-foreground font-light leading-relaxed">Brand Activation Agency. Jakarta · since 2015.</p>
         </div>
