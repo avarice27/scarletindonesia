@@ -31,9 +31,11 @@
   --color-ring: var(--ring);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
-  --font-display: "Syne", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
   --font-serif: "Cormorant Garamond", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Montserrat", sans-serif;
+  --color-sky: var(--sky);
+  --color-ink-warm: var(--ink-warm);
 }
 
 :root {
