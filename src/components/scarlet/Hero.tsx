@@ -8,7 +8,7 @@ export function Hero() {
       style={{ background: "var(--gradient-hero)" }}
     >
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-32 md:pt-36 pb-20 md:pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-[1.05fr_1fr] gap-10 md:gap-12 lg:gap-16 items-center">
           {/* LEFT — copy */}
           <div className="relative">
             <div className="inline-flex items-center gap-2.5 mb-8 animate-fade-in">
