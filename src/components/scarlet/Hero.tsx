@@ -82,8 +82,10 @@ export function Hero() {
             />
             <div className="relative aspect-[4/5] w-full max-w-[560px] mx-auto overflow-hidden rounded-t-full">
               <img
-                src="https://images.unsplash.com/photo-1492447166138-50c3889fccb1?w=1200&q=80"
-                alt="Brand campaign portrait"
+                src={heroWomen}
+                alt="Two women in editorial brand portrait"
+                width={1024}
+                height={1280}
                 className="w-full h-full object-cover"
               />
             </div>
