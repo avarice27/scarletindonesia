@@ -22,6 +22,20 @@ export function ProjectDetail() {
     };
   }, [emblaApi]);
 
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        emblaApi?.scrollPrev();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        emblaApi?.scrollNext();
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [emblaApi]);
+
   return (
     <section className="bg-secondary/30 relative">
       <div className="px-6 md:px-20 pt-20 md:pt-24 pb-6 flex items-end justify-between gap-6 flex-wrap">
@@ -60,7 +74,7 @@ export function ProjectDetail() {
         </div>
       </div>
 
-      <div ref={emblaRef} className="overflow-hidden">
+      <div ref={emblaRef} className="overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y select-none">
         <div className="flex">
           {projects.map((p, i) => (
             <div key={p.id} className="flex-[0_0_100%] min-w-0">
