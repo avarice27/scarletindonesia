@@ -74,7 +74,7 @@ export function ProjectDetail() {
         </div>
       </div>
 
-      <div ref={emblaRef} className="overflow-hidden">
+      <div ref={emblaRef} className="overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y select-none">
         <div className="flex">
           {projects.map((p, i) => (
             <div key={p.id} className="flex-[0_0_100%] min-w-0">
