@@ -1,3 +1,5 @@
+import heroWomen from "@/assets/hero-women.jpg";
+
 export function Hero() {
   return (
     <header
