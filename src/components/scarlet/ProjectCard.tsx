@@ -48,7 +48,7 @@ export function ProjectCard({ p, index }: { p: Project; index: number }) {
   const reverse = index % 2 === 1;
 
   return (
-    <div className="px-6 md:px-20 py-20 md:py-24 border-b border-border">
+    <div className="px-6 md:px-20 py-10 md:py-14">
       <div className="reveal mb-8 max-w-3xl">
         <span className="inline-block bg-primary text-primary-foreground font-display text-[9px] tracking-[0.22em] uppercase px-4 py-1.5 font-bold mb-4">
           {p.badge}
