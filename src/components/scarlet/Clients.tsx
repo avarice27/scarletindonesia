@@ -1,38 +1,63 @@
+import { useState } from "react";
+
 const clients = [
-  { name: "Unilever", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Unilever.svg/512px-Unilever.svg.png" },
-  { name: "L'Oréal", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/L%27Or%C3%A9al_logo.svg/512px-L%27Or%C3%A9al_logo.svg.png" },
-  { name: "Nestlé", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Nestl%C3%A9.svg/512px-Nestl%C3%A9.svg.png" },
-  { name: "Samsung", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/512px-Samsung_Logo.svg.png" },
-  { name: "Indofood", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Indofood_logo.svg/512px-Indofood_logo.svg.png" },
-  { name: "Telkom", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/croppedimage/Telkom_Indonesia_2013.svg/512px-Telkom_Indonesia_2013.svg.png" },
-  { name: "Gojek", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Gojek_logo_2022.svg/512px-Gojek_logo_2022.svg.png" },
-  { name: "BCA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/512px-Bank_Central_Asia.svg.png" },
-  { name: "Shopee", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Shopee_logo.svg/512px-Shopee_logo.svg.png" },
-  { name: "Wardah", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Wardah_logo.svg/512px-Wardah_logo.svg.png" },
-  { name: "Garnier", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Garnier_logo.svg/512px-Garnier_logo.svg.png" },
-  { name: "Tokopedia", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Tokopedia.svg/512px-Tokopedia.svg.png" },
-  { name: "Grab", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Grab_Logo.svg/512px-Grab_Logo.svg.png" },
-  { name: "Mandiri", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png" },
-  { name: "BNI", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/BNI_logo.svg/512px-BNI_logo.svg.png" },
-  { name: "Pertamina", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Pertamina_Logo.svg/512px-Pertamina_Logo.svg.png" },
+  { name: "Unilever", domain: "unilever.com" },
+  { name: "L'Oréal", domain: "loreal.com" },
+  { name: "Nestlé", domain: "nestle.com" },
+  { name: "Samsung", domain: "samsung.com" },
+  { name: "Indofood", domain: "indofood.com" },
+  { name: "Telkom", domain: "telkom.co.id" },
+  { name: "Gojek", domain: "gojek.com" },
+  { name: "BCA", domain: "bca.co.id" },
+  { name: "Shopee", domain: "shopee.co.id" },
+  { name: "Wardah", domain: "wardahbeauty.com" },
+  { name: "Garnier", domain: "garnier.com" },
+  { name: "Tokopedia", domain: "tokopedia.com" },
+  { name: "Grab", domain: "grab.com" },
+  { name: "Mandiri", domain: "bankmandiri.co.id" },
+  { name: "BNI", domain: "bni.co.id" },
+  { name: "Pertamina", domain: "pertamina.com" },
 ];
+
+function LogoItem({ name, domain }: { name: string; domain: string }) {
+  const sources = [
+    `https://logo.clearbit.com/${domain}`,
+    `https://icon.horse/icon/${domain}`,
+    `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
+  ];
+  const [idx, setIdx] = useState(0);
+  const [failed, setFailed] = useState(false);
+
+  return (
+    <div
+      className="px-10 md:px-14 flex items-center justify-center shrink-0"
+      style={{ minWidth: 200, height: 72 }}
+    >
+      {failed ? (
+        <span className="font-display font-extrabold tracking-[0.15em] text-foreground/50 text-sm md:text-base whitespace-nowrap">
+          {name.toUpperCase()}
+        </span>
+      ) : (
+        <img
+          src={sources[idx]}
+          alt={`${name} logo`}
+          loading="lazy"
+          className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+          onError={() => {
+            if (idx < sources.length - 1) setIdx(idx + 1);
+            else setFailed(true);
+          }}
+        />
+      )}
+    </div>
+  );
+}
 
 export function Clients() {
   const row = (
     <div className="flex shrink-0 items-center">
       {clients.concat(clients).map((c, i) => (
-        <div
-          key={i}
-          className="px-10 md:px-14 flex items-center justify-center shrink-0"
-          style={{ minWidth: 180, height: 64 }}
-        >
-          <img
-            src={c.logo}
-            alt={`${c.name} logo`}
-            loading="lazy"
-            className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
-          />
-        </div>
+        <LogoItem key={i} name={c.name} domain={c.domain} />
       ))}
     </div>
   );
