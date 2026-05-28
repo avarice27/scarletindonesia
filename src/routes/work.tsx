@@ -1,0 +1,197 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { TickerTape } from "@/components/scarlet/TickerTape";
+
+export const Route = createFileRoute("/work")({
+  head: () => ({
+    meta: [
+      { title: "Our Work — Scarlet Indonesia" },
+      { name: "description", content: "From boutique launches to mass-market activations. A selection of projects we've delivered for leading brands across Indonesia." },
+      { property: "og:title", content: "Our Work — Scarlet Indonesia" },
+      { property: "og:description", content: "Guardian, Aeris, and more. Every project executed end-to-end by Scarlet Indonesia." },
+    ],
+  }),
+  component: WorkPage,
+});
+
+const PROJECTS = [
+  {
+    title: "Guardian Raya Beauty",
+    images: [
+      "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&q=80",
+      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80",
+      "https://images.unsplash.com/photo-1522335789203-aaa0d7f73c8c?w=1200&q=80",
+    ],
+  },
+  {
+    title: "Aeris × Guardian",
+    images: [
+      "https://images.unsplash.com/photo-1631730486572-226d1f595b68?w=1200&q=80",
+      "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=1200&q=80",
+      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&q=80",
+    ],
+  },
+  {
+    title: "L'Oréal Beauty Showcase",
+    images: [
+      "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&q=80",
+      "https://images.unsplash.com/photo-1583241800698-9c3a8f5b1f6e?w=1200&q=80",
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80",
+    ],
+  },
+];
+
+const BRANDS = [
+  { name: "Unilever", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Unilever.svg/512px-Unilever.svg.png" },
+  { name: "L'Oréal", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/L%27Or%C3%A9al_logo.svg/512px-L%27Or%C3%A9al_logo.svg.png" },
+  { name: "Nestlé", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Nestl%C3%A9_textlogo_blue.svg/512px-Nestl%C3%A9_textlogo_blue.svg.png" },
+  { name: "Samsung", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/512px-Samsung_Logo.svg.png" },
+  { name: "Indofood", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Indofood_logo.svg/512px-Indofood_logo.svg.png" },
+  { name: "Telkom", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Telkom_Indonesia_2013.svg/512px-Telkom_Indonesia_2013.svg.png" },
+  { name: "Gojek", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Gojek_logo_2022.svg/512px-Gojek_logo_2022.svg.png" },
+  { name: "BCA", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/512px-Bank_Central_Asia.svg.png" },
+  { name: "Shopee", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Shopee_logo.svg/512px-Shopee_logo.svg.png" },
+  { name: "Wardah", logoUrl: "https://logo.clearbit.com/wardahbeauty.com" },
+  { name: "Garnier", logoUrl: "https://logo.clearbit.com/garnier.com" },
+  { name: "Kapal Api", logoUrl: "https://logo.clearbit.com/kapalapi.co.id" },
+];
+
+function WorkPage() {
+  const [idx, setIdx] = useState(0);
+  const project = PROJECTS[idx];
+  const prev = () => setIdx((i) => (i - 1 + PROJECTS.length) % PROJECTS.length);
+  const next = () => setIdx((i) => (i + 1) % PROJECTS.length);
+
+  return (
+    <main className="bg-bone text-ink">
+      {/* Intro */}
+      <section className="pt-32 md:pt-40 pb-12 px-6 text-center">
+        <div className="max-w-3xl mx-auto reveal">
+          <h1
+            className="font-display font-semibold leading-[1.05]"
+            style={{ fontSize: "clamp(40px, 5.5vw, 72px)", color: "var(--primary)" }}
+          >
+            our work
+          </h1>
+          <p className="mt-5 text-base md:text-lg text-ink/70">
+            From boutique launches to mass-market activations — every project executed end-to-end.
+            <br className="hidden md:block" />
+            A selection of what we've delivered for leading brands across Indonesia.
+          </p>
+        </div>
+      </section>
+
+      {/* Project carousel */}
+      <section className="pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 px-1">
+          {project.images.map((src, i) => (
+            <div key={i} className="aspect-[4/5] overflow-hidden">
+              <img src={src} alt={project.title} className="w-full h-full object-cover" />
+            </div>
+          ))}
+        </div>
+        <div className="relative bg-primary py-6 px-6">
+          <div className="max-w-[1200px] mx-auto flex items-center justify-between text-bone">
+            <button onClick={prev} aria-label="Previous" className="w-11 h-11 rounded-full border-2 border-bone/70 hover:bg-bone hover:text-primary transition flex items-center justify-center">
+              ‹
+            </button>
+            <h2 className="font-display font-semibold text-xl md:text-3xl">{project.title}</h2>
+            <button onClick={next} aria-label="Next" className="w-11 h-11 rounded-full border-2 border-bone/70 hover:bg-bone hover:text-primary transition flex items-center justify-center">
+              ›
+            </button>
+          </div>
+        </div>
+        <div className="text-center mt-10">
+          <a href="#detail" className="btn-pill btn-pill-outline">See Details ↓</a>
+        </div>
+      </section>
+
+      <TickerTape items={["KOL & Influencer", "Booth Production", "Merchandise", "Digital", "Field Team", "Branding"]} />
+
+      {/* Project Detail 1 */}
+      <section id="detail" className="py-20 md:py-28 px-6 md:px-12">
+        <div className="max-w-[1300px] mx-auto">
+          <span className="sec-label">Mobile Activation · Guardian</span>
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1556228852-80b6e5eeff06?w=1200&q=80" alt="" className="w-full h-full object-cover" style={{ filter: "saturate(1.2) hue-rotate(-5deg)" }} />
+            </div>
+            <div className="grid grid-rows-2 gap-4">
+              <div className="rounded-3xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=1200&q=80" alt="" className="w-full h-full object-cover" />
+              </div>
+              <div className="rounded-3xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1556909114-44e3e7034e25?w=1200&q=80" alt="" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+          <h3 className="mt-10 font-display font-semibold" style={{ fontSize: "clamp(28px, 3.5vw, 44px)" }}>
+            Guardian Raya <em className="italic-red">On the Go</em>
+          </h3>
+          <p className="mt-4 max-w-3xl text-ink/75">
+            A mobile truck activation that brought a full Guardian shopping experience to Blok M throughout the Ramadan season — turning a busy district into Guardian's mobile storefront, with product trials, exclusive Raya promos, instant rewards, and on-site purchase all in one stop.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {["Product Trial", "Raya Promos", "Games & Rewards", "On-site Purchase"].map((t) => (
+              <span key={t} className="btn-pill btn-pill-outline text-xs uppercase tracking-wider">{t}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Project Detail 2 */}
+      <section className="relative min-h-[600px] flex items-center px-6 md:px-12 py-20 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=1800&q=80" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-ink/65" />
+        <div className="relative z-10 max-w-[1100px] mx-auto text-bone reveal">
+          <span className="sec-label" style={{ color: "var(--primary-glow)" }}>Beauty Launch · Aeris × Guardian</span>
+          <h3 className="mt-4 font-display font-semibold leading-tight" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+            Glow In Merlot with <em className="italic" style={{ color: "var(--primary-glow)" }}>Bubah Alfian</em>
+          </h3>
+          <p className="mt-5 max-w-2xl text-bone/85">
+            A beauty collaboration launch between Aeris Beauté and Guardian at Grand Indonesia, headlined by an exclusive makeup session with Bubah Alfian to drive launch awareness, engagement, and product desirability.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            {["Product Launch", "Live Beauty Demo", "KOL: Bubah Alfian", "Exclusive Product Trial"].map((t) => (
+              <span key={t} className="btn-pill text-xs uppercase tracking-wider" style={{ background: "var(--primary)", color: "var(--primary-foreground)" }}>{t}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted By */}
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-paper">
+        <div className="text-center reveal">
+          <span className="sec-label">— Trusted By —</span>
+          <h2 className="mt-4 font-display font-semibold" style={{ fontSize: "clamp(28px, 3.5vw, 44px)" }}>
+            79+ Brand Partners. <em className="italic-red">Across Indonesia.</em>
+          </h2>
+          <p className="mt-3 text-sm text-ink/60">Coverage 34 provinsi — Sabang sampai Merauke.</p>
+        </div>
+
+        <div className="mt-14 max-w-[1200px] mx-auto overflow-hidden"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}>
+          <div className="flex animate-marquee-slow whitespace-nowrap">
+            {BRANDS.concat(BRANDS).map((b, i) => (
+              <div key={i} className="shrink-0 px-10 md:px-14 flex items-center justify-center" style={{ height: 96 }}>
+                <img
+                  src={b.logoUrl}
+                  alt={b.name}
+                  loading="lazy"
+                  className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                  onError={(e) => {
+                    const el = e.currentTarget;
+                    el.outerHTML = `<span class="font-display font-bold tracking-[0.18em] text-ink/50 text-sm md:text-base whitespace-nowrap">${b.name.toUpperCase()}</span>`;
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
