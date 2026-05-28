@@ -11,6 +11,7 @@ export function useScrollReveal() {
   useEffect(() => {
     // Wait a tick so newly mounted DOM is queryable
     const t = window.setTimeout(() => {
+      document.documentElement.classList.add("js-reveal-ready");
       const els = document.querySelectorAll<HTMLElement>(".reveal:not(.is-visible)");
       if (!("IntersectionObserver" in window)) {
         els.forEach((el) => el.classList.add("is-visible"));
