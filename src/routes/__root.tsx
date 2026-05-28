@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { Nav } from "@/components/scarlet/Nav";
 import { Footer } from "@/components/scarlet/Footer";
+import { Toaster } from "@/components/ui/sonner";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 function NotFoundComponent() {
@@ -125,6 +126,7 @@ function RootComponent() {
       <Nav />
       <Outlet />
       <Footer />
+      <Toaster />
     </QueryClientProvider>
   );
 }
