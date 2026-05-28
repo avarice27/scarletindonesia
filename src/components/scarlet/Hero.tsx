@@ -1,102 +1,88 @@
-import heroWomen from "@/assets/hero-women.jpg";
+import heroImg from "@/assets/hero-women.jpg";
 
 export function Hero() {
   return (
     <header
-      id="top"
-      className="relative overflow-hidden"
-      style={{ background: "var(--gradient-hero)" }}
+      className="relative min-h-screen w-full overflow-hidden flex items-center justify-center"
+      style={{ background: "var(--ink)" }}
     >
-      <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-32 md:pt-36 pb-20 md:pb-28">
-        <div className="grid grid-cols-1 md:grid-cols-[1.05fr_1fr] gap-10 md:gap-12 lg:gap-16 items-center">
-          {/* LEFT — copy */}
-          <div className="relative">
-            <div className="inline-flex items-center gap-2.5 mb-8 animate-fade-in">
-              <span className="text-[10px] tracking-[0.32em] uppercase text-primary font-semibold">
-                Brand Activation Agency
-              </span>
-              <span className="w-1 h-1 rounded-full bg-primary/60" />
-              <span className="text-[10px] tracking-[0.32em] uppercase text-primary font-semibold">
-                Est. 2015
-              </span>
-            </div>
+      {/* BG image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroImg}
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover opacity-50"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(120% 80% at 50% 40%, color-mix(in oklab, var(--ink) 30%, transparent), var(--ink) 75%)",
+          }}
+        />
+      </div>
 
-            <h1
-              className="font-display font-semibold leading-[0.98] text-foreground"
-              style={{ fontSize: "clamp(48px, 7vw, 104px)" }}
-            >
-              <span className="block animate-fade-up">We Make</span>
-              <span
-                className="block text-primary animate-fade-up"
-                style={{ animationDelay: ".1s" }}
-              >
-                Brands
-              </span>
-              <span
-                className="block animate-fade-up"
-                style={{ animationDelay: ".2s", color: "var(--sky)" }}
-              >
-                Unforgettable.
-              </span>
-            </h1>
-
-            <div className="w-12 h-px bg-accent mt-10 mb-6" />
-
-            <p
-              className="font-serif italic max-w-[480px] mb-10"
-              style={{
-                color: "color-mix(in oklab, var(--ink) 75%, transparent)",
-                fontSize: "clamp(16px, 1.4vw, 19px)",
-                lineHeight: 1.55,
-              }}
-            >
-              From premium product launches to nationwide festivals — executed
-              with uncompromising standards.
-            </p>
-
-            <div className="flex flex-wrap gap-4 items-center reveal reveal-delay-1">
-              <a
-                href="#work"
-                className="btn-sweep inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-9 py-4 font-sans text-[11px] tracking-[0.22em] uppercase font-semibold"
-              >
-                <span>View Our Work</span>
-                <span>→</span>
-              </a>
-              <a
-                href="#services"
-                className="px-8 py-3.5 border border-accent/60 text-accent hover:bg-accent hover:text-accent-foreground transition-colors font-sans text-[11px] tracking-[0.22em] uppercase font-semibold"
-              >
-                Our Services
-              </a>
-            </div>
-          </div>
-
-          {/* RIGHT — portrait */}
-          <div className="relative">
-            <div
-              className="absolute inset-0 -z-10"
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-[1200px] px-6 md:px-12 text-center pt-32 pb-20">
+        {/* Logo + wordmark */}
+        <div className="flex flex-col items-center gap-2 animate-fade-in">
+          <div className="flex items-baseline justify-center gap-3">
+            <span
+              className="inline-block w-12 h-12 md:w-16 md:h-16 rounded-full"
               style={{
                 background:
-                  "radial-gradient(closest-side, color-mix(in oklab, var(--cream) 90%, transparent) 0%, transparent 75%)",
+                  "radial-gradient(circle at 35% 35%, var(--primary-glow), var(--primary))",
+                boxShadow: "0 0 60px color-mix(in oklab, var(--primary) 60%, transparent)",
               }}
             />
-            <div className="relative aspect-[4/5] w-full max-w-[560px] mx-auto overflow-hidden rounded-t-full">
-              <img
-                src={heroWomen}
-                alt="Two women in editorial brand portrait"
-                width={1024}
-                height={1280}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div
-              className="hidden md:block absolute right-2 top-1/2 -translate-y-1/2 text-[10px] tracking-[0.4em] uppercase text-muted-foreground font-medium"
-              style={{ writingMode: "vertical-rl" }}
+            <span
+              className="font-display font-bold text-bone leading-none"
+              style={{ fontSize: "clamp(56px, 9vw, 132px)" }}
             >
-              Scarlet Indonesia
-            </div>
+              Scarlet
+            </span>
           </div>
+          <span className="text-[10px] md:text-xs tracking-[0.5em] uppercase text-bone/40 font-medium">
+            Indonesia
+          </span>
         </div>
+
+        {/* Tag */}
+        <p
+          className="mt-12 text-[11px] md:text-xs tracking-[0.4em] uppercase text-bone/70 animate-fade-up"
+          style={{ animationDelay: ".15s" }}
+        >
+          Brand Activation Agency · Est. 2015
+        </p>
+
+        {/* Headline */}
+        <h1
+          className="mt-10 font-display font-semibold text-bone leading-[1.02] animate-fade-up"
+          style={{ fontSize: "clamp(44px, 6.5vw, 96px)", animationDelay: ".25s" }}
+        >
+          We Bring{" "}
+          <em
+            className="italic"
+            style={{ color: "var(--primary)", fontStyle: "italic", fontWeight: 700 }}
+          >
+            Brands to life
+          </em>
+        </h1>
+
+        {/* Sub */}
+        <p
+          className="mt-8 mx-auto max-w-2xl text-base md:text-lg text-bone/75 font-light leading-relaxed animate-fade-up"
+          style={{ animationDelay: ".35s" }}
+        >
+          From premium product launches to nationwide festivals — executed down to the last detail.
+        </p>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-bone/50">
+        <span className="text-[10px] tracking-[0.3em] uppercase">scroll</span>
+        <span className="block w-px h-10 bg-bone/30 animate-bounce-down" />
       </div>
     </header>
   );
