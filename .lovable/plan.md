@@ -1,96 +1,101 @@
-## Goal
 
-Replace the current 2-project ProjectDetail section with a scalable case-study system that holds **10–20 projects**, each with **up to 6 media items** (photos and/or videos), in a clean **uniform grid** layout — without changing the rest of the site's design.
+# Rombak Web Scarlet — Mengikuti Canva (Home / About Us / Work / Contact)
 
-## What changes
+## Arah desain (locked dari Canva)
 
-### 1. New data structure (`src/data/projects.ts`)
+**Palette**
+- `--primary` deep scarlet red `#C8102E` (pill CTA, accent, ticker tape)
+- `--ink` near-black `#0E0708` (hero overlay, contact form bg wine `#2E0A0E`)
+- `--paper` cream off-white `#F6F1EA` (body sections About Us)
+- `--bone` pure white untuk Work & Contact intro
+- Text: black on cream, white on dark
 
-Move project data out of the component into a typed array so you can paste in 10–20 entries from your Canva without touching JSX.
+**Typography**
+- Heading: sans humanist tebal + italic kontras (mirip "Brandon Grotesque / Gilroy"). Pakai pair `outfit-figtree` atau `space-grotesk-dm-sans` dari preset.
+- Pola signature: heading 2-tone — putih biasa + **merah italic** ("We Bring *Brands to life*", "We Turn Idea Into *Impact*").
 
-```ts
-export type ProjectMedia =
-  | { type: "image"; src: string; alt?: string }
-  | { type: "video"; src: string; poster?: string; provider?: "mp4" | "youtube" | "vimeo" };
+**Layout signature**
+- Nav top minimalis: text link + pill merah "start project"
+- Section label kecil uppercase tracking lebar di atas heading ("CONTACT US", "TRUSTED BY", "our work")
+- Ticker tape merah horizontal scrolling antar section
+- Pill chip outline merah untuk service/keyword tags
+- Project carousel dengan arrow nav merah
 
-export type Project = {
-  id: string;
-  badge: string;          // "Mobile Activation"
-  client: string;         // "Guardian"
-  title: string;          // "Guardian Raya On the Go"
-  loc: string;            // "Blok M · 6–8 Maret 2026"
-  desc: string;
-  highlights: string[];
-  objective: string;
-  media: ProjectMedia[];  // up to 6
-};
+## Struktur route (TanStack)
+
+Ganti single-page jadi 4 route terpisah supaya SEO & navigasi nyata:
+
+```
+src/routes/
+  __root.tsx        -> Nav + Outlet + Footer
+  index.tsx         -> Home (page 1 Canva)
+  about.tsx         -> About Us (page 2 Canva)
+  work.tsx          -> Work (page 3 Canva)
+  contact.tsx       -> Contact (page 4 Canva)
 ```
 
-Both **self-hosted MP4** and **YouTube/Vimeo** videos are supported via the `provider` field.
+Tiap route punya `head()` sendiri (title + description unik).
 
-### 2. New `ProjectCard` component (uniform grid)
+## Section per route
 
-Each project becomes one **case-study card** with this internal layout:
+### 1. Home (`/`)
+- Full-bleed hero: video/foto gelap (women in red, motion blur) sebagai background, overlay gelap
+- Center stack: logo Scarlet + wordmark "INDONESIA" → tagline kecil "BRAND ACTIVATION AGENCY EST. 2015" → headline besar 2-line "We Bring **Brands to life**" (italic merah) → subline tipis 1 baris
+- Tidak ada konten lain di home — clean cinematic, scroll prompt kecil di bawah
 
-```text
-┌─────────────────────────────────────────────┐
-│ [BADGE]  Client                             │
-│ Project Title                               │
-│ Location · Date                             │
-├──────────────────────────┬──────────────────┤
-│  ┌────┬────┬────┐        │  Description     │
-│  │ M1 │ M2 │ M3 │        │                  │
-│  ├────┼────┼────┤        │  HIGHLIGHTS      │
-│  │ M4 │ M5 │ M6 │        │  — point 1       │
-│  └────┴────┴────┘        │  — point 2       │
-│  Uniform 3×2 grid         │                  │
-│  (any cell = photo or     │  ┃ OBJECTIVE     │
-│   video tile)             │  ┃ ...           │
-└──────────────────────────┴──────────────────┘
-```
+### 2. About Us (`/about`)
+Berdasarkan page 2 Canva, 7 blok berurutan:
+1. **Intro**: heading "We're An Activation Agency Built For Brands That Want To Be Felt, Not Just Seen" + slot video company profile (placeholder 16:9 dengan label)
+2. **One Partner, Every Kind of Activation**: grid foto merah (Maserati / Kylie / Mont Blanc / Legend Blue) + paragraf kanan
+3. **"The best of both worlds"** split banner: LUXURY LAUNCH ↔ NATIONWIDE FESTIVAL
+4. **History** dengan timeline 2015 → 2026 (background terowongan merah neon dari Canva)
+5. **Stats grid 2×2**: 10+ YEARS · 15+ CITIES · 1600+ PROJECTS · 79+ BRAND PARTNERS (overlay di atas bg merah)
+6. **Reach your audience Anywhere in Indonesia**: foto map LED + phone, paragraf
+7. **Our Values** — 4 kartu foto: Ownership · Creativity · Excellence · Integrity
+8. **"We Turn Idea Into *Impact*"** — full-bleed hero foto bunga + overlay
+9. **Our Services** — 6 column grid foto vertikal: Offline & Online Events · Booth & Production · Retail & Field Team · Branding & Creative · Social Media & KOL · **Print & Merchandise**
 
-- **Media grid**: uniform 3×2 (desktop), 2×3 (tablet), 1-col stack (mobile). Equal aspect-ratio tiles (4:3 or 1:1).
-- **Video tiles**: show poster image + center play button. Click → opens lightbox modal that plays the video (works for MP4 and YouTube/Vimeo embed). Optional hover-to-preview muted loop for MP4.
-- **Text column**: title, description, highlights, objective — same style tokens as today (font-display, sec-label colors, accent border on Objective).
-- Handles **fewer than 6 media** gracefully (4 → 2×2, 2 → 1×2, etc.).
+### 3. Work (`/work`)
+1. **Intro** centered: "our work" + 2-line subline
+2. **Project carousel**: 3-up foto besar, arrow merah kiri-kanan, judul project + tombol "SEE DETAILS"
+3. **Ticker tape merah**: "KOL & INFLUENCER · BOOTH PRODUCTION · MERCHANDISE · DIGITAL" scrolling
+4. **Project detail 1 — Guardian Raya On the Go**: 2 foto + body + 4 pill chip merah (Product Trial / Raya Promos / Games & Rewards / On-site Purchase)
+5. **Project detail 2 — Aeris × Guardian**: foto full-bleed + 4 pill chip (Product launch / Live beauty demo / KOL: Bubah Alfian / Exclusive product trial)
+6. **Trusted By** — heading "79+ Brand Partners. Across Indonesia." + **logo grid 4×3 sliding** (logo brand asli, manual `logoUrl` per brand — sistem yang sudah disiapkan sebelumnya tetap dipakai)
 
-### 3. Section layout (`ProjectDetail.tsx`)
+### 4. Contact (`/contact`)
+1. **Header**: label "CONTACT US" + heading besar "Let's create your next moment." + caption "Fill in the form below ↓"
+2. **Choose Our Services**: 6 pill outline merah 3×2 grid (toggleable, jadi pre-fill ke form)
+3. **CTA line**: "Start with the goal. We'll do the rest. →" + pill merah "Let's talk !"
+4. **Form section dark wine** `#2E0A0E`: Your Name, Brand / Company, Email, Phone, Tell us about your project (textarea), tombol merah pill "SEND YOUR BRIEF →", caption "We respond within 1 business day."
 
-- Section heading stays ("Selected Work" or similar with the existing `text-ghost` backdrop word).
-- Renders `projects.map(p => <ProjectCard ... />)` — one card per project, stacked vertically with the existing `border-b border-border` divider.
-- For **10–20 projects**, add a "Show more" button that reveals projects past the first 4–6 (avoids a huge initial DOM and keeps the page fast).
+(Form: submit handler simpan ke state + toast success. Tidak setup backend kecuali kamu minta — kalau mau email/database, butuh enable Lovable Cloud, bilang setelah plan ini.)
 
-### 4. Lightbox for videos (`ProjectMediaLightbox.tsx`)
+## Komponen yang dibuang / diganti
 
-Reused across all cards:
-- Click any video tile → fullscreen overlay with the video playing
-- ESC / click-outside to close
-- For YouTube/Vimeo: iframe embed with autoplay
-- For MP4: native `<video controls autoplay>`
+Hapus dari index lama (tidak ada di Canva): `Marquee` (logo brand atas), `Numbers`, `Packages`, `ProjectDetail` lama, `CTA`, `Merchandise` (digabung ke About > Our Services).
 
-### 5. Performance
+Komponen yang dipakai ulang & dirombak: `Nav`, `Hero`, `Clients` (logo sliding), `Footer`.
 
-- All images use `loading="lazy"` (already the pattern).
-- Videos lazy-load: only the poster image until clicked.
-- "Show more" pagination keeps initial render light.
+Komponen baru:
+- `AboutIntro`, `OnePartner`, `BothWorlds`, `History`, `StatsGrid`, `Reach`, `Values`, `ImpactBanner`, `ServicesGrid`
+- `WorkIntro`, `ProjectCarousel`, `TickerTape`, `ProjectDetail` (refactor)
+- `ContactHeader`, `ServicePills`, `ContactForm`
 
-## What stays the same
+## Footer (semua route)
+Sesuai Canva: kolom Scarlet logo + tagline · EXPLORE (Work/Services/Packages/Contact) · CONTACT (email/phone/Jakarta) · SOCIAL (IG/TikTok/LinkedIn/YouTube). Garis bawah: © 2026 + "BRAND ACTIVATION · EVENT · PRODUCTION · MERCHANDISE".
 
-- Color palette, typography, spacing tokens, `font-display`, `sec-label`, `text-ghost` accents, `reveal` scroll animations, `border-b border-border` section dividers.
-- Hero, Services, Numbers, Packages, Merchandise, Footer — untouched.
-- Existing `ProjectsGrid.tsx` (the photo-tile grid above the case studies) — untouched.
+## Asset workflow
 
-## Files touched
+Foto-foto referensi di Canva (Maserati, Guardian, Aeris, dll) saya ekstrak dari PDF jadi placeholder pertama. Kamu bisa replace satu-satu kapan saja (sistem `logoUrl`/`imageUrl` per item). Untuk hero video, saya pakai foto/loop dulu — kalau punya video aslinya, drop nanti.
 
-- **New**: `src/data/projects.ts`, `src/components/scarlet/ProjectCard.tsx`, `src/components/scarlet/ProjectMediaLightbox.tsx`
-- **Edited**: `src/components/scarlet/ProjectDetail.tsx` (becomes a thin wrapper that maps data → cards)
+## Detail teknis
+- Tailwind + design tokens di `src/styles.css` (semantic): `--primary`, `--ink`, `--paper`, `--bone`, `--gradient-hero`, `--shadow-elegant`
+- Animasi: scroll reveal yang sudah ada (`useScrollReveal`), marquee CSS keyframe untuk ticker & logo slide
+- Carousel project: pakai komponen `carousel` shadcn yang sudah terinstall
+- Form pakai `react-hook-form` + `zod` (sudah ada di project)
+- Update `head()` per route untuk SEO unik
 
-## What I need from you after approval
-
-Either:
-1. **Paste/share your 10–20 Canva project entries** (title, client, dates, description, highlights, objective + image/video links), OR
-2. I'll seed all 10–20 with placeholder content matching the current 2 projects' style, and you fill in via Visual Edits or by editing `src/data/projects.ts` directly later.
-
-Videos can be:
-- **MP4 URLs** (host on Cloudinary, Bunny.net, or any CDN — free tier OK for small clips)
-- **YouTube/Vimeo URLs** — just paste the watch URL, I'll handle the embed
+## Pertanyaan terbuka (jawab setelah approve plan)
+1. Apakah benar 4 section = Home/About/Work/**Contact** (sesuai Canva), atau kamu tetap mau tab **Merch** terpisah?
+2. Form contact submitnya ke email/database (perlu Cloud), atau cukup UI dulu (mailto fallback)?
