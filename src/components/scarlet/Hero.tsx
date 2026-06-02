@@ -1,4 +1,4 @@
-import heroImg from "@/assets/hero-women.jpg";
+import heroVideo from "@/assets/scarlet-hero.mov.asset.json";
 
 export function Hero() {
   return (
@@ -6,11 +6,14 @@ export function Hero() {
       className="relative min-h-screen w-full overflow-hidden flex items-center justify-center"
       style={{ background: "var(--ink)" }}
     >
-      {/* BG image */}
+      {/* BG video */}
       <div className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt=""
+        <video
+          src={heroVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
           aria-hidden
           className="w-full h-full object-cover opacity-50"
         />
