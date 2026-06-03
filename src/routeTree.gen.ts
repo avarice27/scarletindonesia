@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
-import { Route as FoldersRouteImport } from './routes/folders'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -18,11 +17,6 @@ import { Route as IndexRouteImport } from './routes/index'
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FoldersRoute = FoldersRouteImport.update({
-  id: '/folders',
-  path: '/folders',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -45,14 +39,12 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/folders': typeof FoldersRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/folders': typeof FoldersRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesById {
@@ -60,22 +52,20 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/folders': typeof FoldersRoute
   '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/folders' | '/work'
+  fullPaths: '/' | '/about' | '/contact' | '/work'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/folders' | '/work'
-  id: '__root__' | '/' | '/about' | '/contact' | '/folders' | '/work'
+  to: '/' | '/about' | '/contact' | '/work'
+  id: '__root__' | '/' | '/about' | '/contact' | '/work'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  FoldersRoute: typeof FoldersRoute
   WorkRoute: typeof WorkRoute
 }
 
@@ -86,13 +76,6 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/folders': {
-      id: '/folders'
-      path: '/folders'
-      fullPath: '/folders'
-      preLoaderRoute: typeof FoldersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -123,7 +106,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  FoldersRoute: FoldersRoute,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport
