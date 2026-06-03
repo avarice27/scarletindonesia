@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import { TickerTape } from "@/components/scarlet/TickerTape";
 
 import coty1 from "@/assets/work/coty-1.jpg.asset.json";
@@ -78,9 +79,21 @@ const BRANDS = [
 
 function WorkPage() {
   const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
   const project = PROJECTS[idx];
   const prev = () => setIdx((i) => (i - 1 + PROJECTS.length) % PROJECTS.length);
   const next = () => setIdx((i) => (i + 1) % PROJECTS.length);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    if (paused) return;
+    timerRef.current = setInterval(() => {
+      setIdx((i) => (i + 1) % PROJECTS.length);
+    }, 4500);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [paused]);
 
   return (
     <main className="bg-bone text-ink">
@@ -102,22 +115,45 @@ function WorkPage() {
       </section>
 
       {/* Project carousel */}
-      <section className="pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 px-1">
+      <section
+        className="pb-12"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-1 px-1 overflow-hidden">
           {project.images.map((src, i) => (
-            <div key={i} className="aspect-[4/5] overflow-hidden">
-              <img src={src} alt={project.title} className="w-full h-full object-cover" />
+            <div key={`${idx}-${i}`} className="aspect-[4/5] overflow-hidden bg-paper">
+              <img
+                src={src}
+                alt={project.title}
+                className="w-full h-full object-cover animate-fade-in"
+                style={{ animationDelay: `${i * 120}ms`, animationFillMode: "both" }}
+              />
             </div>
           ))}
         </div>
-        <div className="relative bg-primary py-6 px-6">
+        <div className="relative bg-primary py-6 px-6 overflow-hidden">
+          {/* Progress bar */}
+          <div
+            key={`bar-${idx}-${paused}`}
+            className="absolute top-0 left-0 h-[2px] bg-bone/80"
+            style={{
+              width: paused ? '0%' : '100%',
+              transition: paused ? 'none' : 'width 4.5s linear',
+              animation: paused ? 'none' : undefined,
+            }}
+          />
+
           <div className="max-w-[1200px] mx-auto flex items-center justify-between text-bone">
             <button onClick={prev} aria-label="Previous" className="w-11 h-11 rounded-full border-2 border-bone/70 hover:bg-bone hover:text-primary transition flex items-center justify-center">
               ‹
             </button>
-            <h2 className="font-display font-semibold text-xl md:text-3xl">{project.title}</h2>
+            <h2 key={`title-${idx}`} className="font-display font-semibold text-xl md:text-3xl text-center animate-fade-in">
+              {project.title}
+            </h2>
             <button onClick={next} aria-label="Next" className="w-11 h-11 rounded-full border-2 border-bone/70 hover:bg-bone hover:text-primary transition flex items-center justify-center">
               ›
+
             </button>
           </div>
         </div>
