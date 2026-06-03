@@ -134,11 +134,16 @@ function WorkPage() {
         </div>
         <div className="relative bg-primary py-6 px-6 overflow-hidden">
           {/* Progress bar */}
-          <div className="absolute top-0 left-0 h-[2px] bg-bone/80" style={{
-            width: paused ? '0%' : '100%',
-            transition: paused ? 'none' : 'width 4.5s linear',
-            key: idx,
-          } as React.CSSProperties} key={`bar-${idx}-${paused}`} />
+          <div
+            key={`bar-${idx}-${paused}`}
+            className="absolute top-0 left-0 h-[2px] bg-bone/80"
+            style={{
+              width: paused ? '0%' : '100%',
+              transition: paused ? 'none' : 'width 4.5s linear',
+              animation: paused ? 'none' : undefined,
+            }}
+          />
+
           <div className="max-w-[1200px] mx-auto flex items-center justify-between text-bone">
             <button onClick={prev} aria-label="Previous" className="w-11 h-11 rounded-full border-2 border-bone/70 hover:bg-bone hover:text-primary transition flex items-center justify-center">
               ‹
