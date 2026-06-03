@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import { TickerTape } from "@/components/scarlet/TickerTape";
 
 import coty1 from "@/assets/work/coty-1.jpg.asset.json";
