@@ -22,6 +22,13 @@ import ky1 from "@/assets/work/kylie-1.jpg.asset.json";
 import ky2 from "@/assets/work/kylie-2.jpg.asset.json";
 import ky3 from "@/assets/work/kylie-3.jpg.asset.json";
 
+import logoIkea from "@/assets/logos/ikea.png.asset.json";
+import logoAnimore from "@/assets/logos/animore.png.asset.json";
+import logoMotherlove from "@/assets/logos/motherlove.png.asset.json";
+import logoBvlgari from "@/assets/logos/bvlgari.svg.asset.json";
+import logoNestle from "@/assets/logos/nestle.svg.asset.json";
+
+
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
@@ -63,19 +70,20 @@ const PROJECTS = [
 
 
 const BRANDS = [
-  { name: "Unilever", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Unilever.svg/512px-Unilever.svg.png" },
-  { name: "L'Oréal", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/L%27Or%C3%A9al_logo.svg/512px-L%27Or%C3%A9al_logo.svg.png" },
-  { name: "Nestlé", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Nestl%C3%A9_textlogo_blue.svg/512px-Nestl%C3%A9_textlogo_blue.svg.png" },
-  { name: "Samsung", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/512px-Samsung_Logo.svg.png" },
-  { name: "Indofood", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Indofood_logo.svg/512px-Indofood_logo.svg.png" },
-  { name: "Telkom", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Telkom_Indonesia_2013.svg/512px-Telkom_Indonesia_2013.svg.png" },
-  { name: "Gojek", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Gojek_logo_2022.svg/512px-Gojek_logo_2022.svg.png" },
-  { name: "BCA", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/512px-Bank_Central_Asia.svg.png" },
-  { name: "Shopee", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Shopee_logo.svg/512px-Shopee_logo.svg.png" },
-  { name: "Wardah", logoUrl: "https://logo.clearbit.com/wardahbeauty.com" },
-  { name: "Garnier", logoUrl: "https://logo.clearbit.com/garnier.com" },
-  { name: "Kapal Api", logoUrl: "https://logo.clearbit.com/kapalapi.co.id" },
+  { name: "IKEA", logoUrl: logoIkea.url },
+  { name: "BVLGARI", logoUrl: logoBvlgari.url },
+  { name: "Nestlé", logoUrl: logoNestle.url },
+  { name: "Animore", logoUrl: logoAnimore.url },
+  { name: "Motherlove", logoUrl: logoMotherlove.url },
+  { name: "COTY", logoUrl: "" },
+  { name: "Guardian", logoUrl: "" },
+  { name: "Kylie Cosmetics", logoUrl: "" },
+  { name: "Verdilab", logoUrl: "" },
+  { name: "Interlac", logoUrl: "" },
+  { name: "Dr Teal's", logoUrl: "" },
+  { name: "Aeris Beauté", logoUrl: "" },
 ];
+
 
 function WorkPage() {
   const [idx, setIdx] = useState(0);
@@ -233,18 +241,25 @@ function WorkPage() {
           <div className="flex animate-marquee-slow whitespace-nowrap">
             {BRANDS.concat(BRANDS).map((b, i) => (
               <div key={i} className="shrink-0 px-10 md:px-14 flex items-center justify-center" style={{ height: 96 }}>
-                <img
-                  src={b.logoUrl}
-                  alt={b.name}
-                  loading="lazy"
-                  className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
-                  onError={(e) => {
-                    const el = e.currentTarget;
-                    el.outerHTML = `<span class="font-display font-bold tracking-[0.18em] text-ink/50 text-sm md:text-base whitespace-nowrap">${b.name.toUpperCase()}</span>`;
-                  }}
-                />
+                {b.logoUrl ? (
+                  <img
+                    src={b.logoUrl}
+                    alt={b.name}
+                    loading="lazy"
+                    className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                    onError={(e) => {
+                      const el = e.currentTarget;
+                      el.outerHTML = `<span class="font-display font-bold tracking-[0.18em] text-ink/50 text-sm md:text-base whitespace-nowrap">${b.name.toUpperCase()}</span>`;
+                    }}
+                  />
+                ) : (
+                  <span className="font-display font-bold tracking-[0.18em] text-ink/50 hover:text-ink/80 transition-colors text-sm md:text-base whitespace-nowrap">
+                    {b.name.toUpperCase()}
+                  </span>
+                )}
               </div>
             ))}
+
           </div>
         </div>
       </section>
