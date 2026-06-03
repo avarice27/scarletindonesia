@@ -2,13 +2,32 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { TickerTape } from "@/components/scarlet/TickerTape";
 
+import coty1 from "@/assets/work/coty-1.jpg.asset.json";
+import coty2 from "@/assets/work/coty-2.jpg.asset.json";
+import coty3 from "@/assets/work/coty-3.jpg.asset.json";
+import ikea1 from "@/assets/work/ikea-1.jpg.asset.json";
+import ikea2 from "@/assets/work/ikea-2.jpg.asset.json";
+import ikea3 from "@/assets/work/ikea-3.jpg.asset.json";
+import gb1 from "@/assets/work/guardian-beauty-1.jpg.asset.json";
+import gb2 from "@/assets/work/guardian-beauty-2.jpg.asset.json";
+import gb3 from "@/assets/work/guardian-beauty-3.jpg.asset.json";
+import gp1 from "@/assets/work/guardian-padel-1.jpg.asset.json";
+import gp2 from "@/assets/work/guardian-padel-2.jpg.asset.json";
+import gp3 from "@/assets/work/guardian-padel-3.jpg.asset.json";
+import bv1 from "@/assets/work/bvlgari-1.jpg.asset.json";
+import bv2 from "@/assets/work/bvlgari-2.jpg.asset.json";
+import bv3 from "@/assets/work/bvlgari-3.jpg.asset.json";
+import ky1 from "@/assets/work/kylie-1.jpg.asset.json";
+import ky2 from "@/assets/work/kylie-2.jpg.asset.json";
+import ky3 from "@/assets/work/kylie-3.jpg.asset.json";
+
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
       { title: "Our Work — Scarlet Indonesia" },
       { name: "description", content: "From boutique launches to mass-market activations. A selection of projects we've delivered for leading brands across Indonesia." },
       { property: "og:title", content: "Our Work — Scarlet Indonesia" },
-      { property: "og:description", content: "Guardian, Aeris, and more. Every project executed end-to-end by Scarlet Indonesia." },
+      { property: "og:description", content: "Guardian, BVLGARI, Kylie, IKEA, COTY and more. Every project executed end-to-end by Scarlet Indonesia." },
     ],
   }),
   component: WorkPage,
@@ -16,30 +35,31 @@ export const Route = createFileRoute("/work")({
 
 const PROJECTS = [
   {
-    title: "Guardian Raya Beauty",
-    images: [
-      "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&q=80",
-      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80",
-      "https://images.unsplash.com/photo-1522335789203-aaa0d7f73c8c?w=1200&q=80",
-    ],
+    title: "COTY MHA Event PIM 2024",
+    images: [coty1.url, coty2.url, coty3.url],
   },
   {
-    title: "Aeris × Guardian",
-    images: [
-      "https://images.unsplash.com/photo-1631730486572-226d1f595b68?w=1200&q=80",
-      "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=1200&q=80",
-      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&q=80",
-    ],
+    title: "IKEA Range Day — FY27",
+    images: [ikea1.url, ikea2.url, ikea3.url],
   },
   {
-    title: "L'Oréal Beauty Showcase",
-    images: [
-      "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&q=80",
-      "https://images.unsplash.com/photo-1583241800698-9c3a8f5b1f6e?w=1200&q=80",
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80",
-    ],
+    title: "Guardian Wellness Journey — Beauty Experience",
+    images: [gb1.url, gb2.url, gb3.url],
+  },
+  {
+    title: "Guardian Wellness Journey — Padel",
+    images: [gp1.url, gp2.url, gp3.url],
+  },
+  {
+    title: "BVLGARI — OMNIA Crystalline Launch Event",
+    images: [bv1.url, bv2.url, bv3.url],
+  },
+  {
+    title: "Kylie Cosmetics Grand Launch Event",
+    images: [ky1.url, ky2.url, ky3.url],
   },
 ];
+
 
 const BRANDS = [
   { name: "Unilever", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Unilever.svg/512px-Unilever.svg.png" },
