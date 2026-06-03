@@ -241,18 +241,25 @@ function WorkPage() {
           <div className="flex animate-marquee-slow whitespace-nowrap">
             {BRANDS.concat(BRANDS).map((b, i) => (
               <div key={i} className="shrink-0 px-10 md:px-14 flex items-center justify-center" style={{ height: 96 }}>
-                <img
-                  src={b.logoUrl}
-                  alt={b.name}
-                  loading="lazy"
-                  className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
-                  onError={(e) => {
-                    const el = e.currentTarget;
-                    el.outerHTML = `<span class="font-display font-bold tracking-[0.18em] text-ink/50 text-sm md:text-base whitespace-nowrap">${b.name.toUpperCase()}</span>`;
-                  }}
-                />
+                {b.logoUrl ? (
+                  <img
+                    src={b.logoUrl}
+                    alt={b.name}
+                    loading="lazy"
+                    className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                    onError={(e) => {
+                      const el = e.currentTarget;
+                      el.outerHTML = `<span class="font-display font-bold tracking-[0.18em] text-ink/50 text-sm md:text-base whitespace-nowrap">${b.name.toUpperCase()}</span>`;
+                    }}
+                  />
+                ) : (
+                  <span className="font-display font-bold tracking-[0.18em] text-ink/50 hover:text-ink/80 transition-colors text-sm md:text-base whitespace-nowrap">
+                    {b.name.toUpperCase()}
+                  </span>
+                )}
               </div>
             ))}
+
           </div>
         </div>
       </section>
