@@ -11,10 +11,9 @@ export function Hero() {
         <video
           src={heroVideo.url}
           autoPlay
-          muted
           loop
           playsInline
-          aria-hidden
+          controls
           className="w-full h-full object-cover opacity-50"
         />
         <div
