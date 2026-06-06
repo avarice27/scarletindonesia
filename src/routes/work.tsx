@@ -127,7 +127,7 @@ function BrandLogo({ name, domain, logoUrl }: { name: string; domain?: string; l
       src={sources[idx]}
       alt={name}
       loading="lazy"
-      className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+      className="max-h-12 md:max-h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
       onError={() => {
         if (idx < sources.length - 1) setIdx(idx + 1);
         else setFailed(true);
