@@ -112,14 +112,13 @@ function MerchPage() {
                 "radial-gradient(60% 80% at 25% 40%, color-mix(in oklab, var(--primary) 50%, var(--ink)), var(--ink) 70%), radial-gradient(50% 70% at 80% 60%, color-mix(in oklab, var(--primary-glow) 35%, transparent), transparent 70%)",
             }}
           >
-            <h2
-              className="absolute inset-0 flex items-center justify-center text-center font-display font-light text-bone px-6"
-              style={{
-                fontSize: "clamp(28px, 6vw, 72px)",
-                letterSpacing: "0.04em",
-                mixBlendMode: "overlay",
-              }}
-            >
+          <h2
+            className="absolute inset-0 flex items-center justify-center text-center font-display font-light text-bone px-6"
+            style={{
+              fontSize: "clamp(28px, 6vw, 72px)",
+              letterSpacing: "0.04em",
+            }}
+          >
               Where ideas become objects
             </h2>
             <div className="absolute bottom-4 right-5 text-[12px] tracking-[0.3em] text-bone/50">
