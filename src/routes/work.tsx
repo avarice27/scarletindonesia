@@ -101,6 +101,41 @@ const BRANDS: { name: string; domain?: string; logoUrl?: string }[] = [
 ];
 
 
+function BrandLogo({ name, domain, logoUrl }: { name: string; domain?: string; logoUrl?: string }) {
+  const sources = [
+    ...(logoUrl ? [logoUrl] : []),
+    ...(domain
+      ? [
+          `https://logo.clearbit.com/${domain}`,
+          `https://icon.horse/icon/${domain}`,
+          `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
+        ]
+      : []),
+  ];
+  const [idx, setIdx] = useState(0);
+  const [failed, setFailed] = useState(sources.length === 0);
+
+  if (failed) {
+    return (
+      <span className="font-display font-bold tracking-[0.18em] text-ink/50 text-sm md:text-base whitespace-nowrap">
+        {name.toUpperCase()}
+      </span>
+    );
+  }
+  return (
+    <img
+      src={sources[idx]}
+      alt={name}
+      loading="lazy"
+      className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+      onError={() => {
+        if (idx < sources.length - 1) setIdx(idx + 1);
+        else setFailed(true);
+      }}
+    />
+  );
+}
+
 function WorkPage() {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
