@@ -69,19 +69,35 @@ const PROJECTS = [
 ];
 
 
-const BRANDS = [
-  { name: "IKEA", logoUrl: logoIkea.url },
-  { name: "BVLGARI", logoUrl: logoBvlgari.url },
-  { name: "Nestlé", logoUrl: logoNestle.url },
-  { name: "Animore", logoUrl: logoAnimore.url },
-  { name: "Motherlove", logoUrl: logoMotherlove.url },
-  { name: "COTY", logoUrl: "" },
-  { name: "Guardian", logoUrl: "" },
-  { name: "Kylie Cosmetics", logoUrl: "" },
-  { name: "Verdilab", logoUrl: "" },
-  { name: "Interlac", logoUrl: "" },
-  { name: "Dr Teal's", logoUrl: "" },
-  { name: "Aeris Beauté", logoUrl: "" },
+const BRANDS: { name: string; domain?: string; logoUrl?: string }[] = [
+  { name: "Unilever", domain: "unilever.com" },
+  { name: "Cornetto", domain: "cornetto.com" },
+  { name: "Pepsodent", domain: "pepsodent.com" },
+  { name: "Axe", domain: "axe.com" },
+  { name: "Rexona", domain: "rexona.com" },
+  { name: "Bango", domain: "bango.co.id" },
+  { name: "Citra", domain: "citra.co.id" },
+  { name: "Fonterra", domain: "fonterra.com" },
+  { name: "Dove", domain: "dove.com" },
+  { name: "Pond's", domain: "ponds.com" },
+  { name: "SGM", domain: "sgm-nutrition.co.id" },
+  { name: "Magnum", domain: "magnumicecream.com" },
+  { name: "Sunsilk", domain: "sunsilk.com" },
+  { name: "Molto", domain: "molto.co.id" },
+  { name: "Glow & Lovely", domain: "glowandlovely.in" },
+  { name: "Kalbe Blackmores", domain: "blackmores.co.id" },
+  { name: "Clear", domain: "clear.com" },
+  { name: "Rinso", domain: "rinso.co.id" },
+  { name: "Uniqlo", domain: "uniqlo.com" },
+  { name: "Danone", domain: "danone.com" },
+  { name: "Anchor", domain: "anchordairy.com" },
+  { name: "Paddle Pop", domain: "paddlepop.com" },
+  { name: "Vaseline", domain: "vaseline.com" },
+  { name: "Standard Chartered", domain: "sc.com" },
+  { name: "Nutrilon Royal", domain: "nutricia.co.id" },
+  { name: "IKEA", logoUrl: logoIkea.url, domain: "ikea.com" },
+  { name: "BVLGARI", logoUrl: logoBvlgari.url, domain: "bulgari.com" },
+  { name: "Nestlé", logoUrl: logoNestle.url, domain: "nestle.com" },
 ];
 
 
