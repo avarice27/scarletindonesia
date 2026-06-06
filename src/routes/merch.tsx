@@ -109,19 +109,65 @@ function MerchPage() {
             style={{
               height: "clamp(260px, 42vh, 440px)",
               background:
-                "radial-gradient(60% 80% at 25% 40%, color-mix(in oklab, var(--primary) 50%, var(--ink)), var(--ink) 70%), radial-gradient(50% 70% at 80% 60%, color-mix(in oklab, var(--primary-glow) 35%, transparent), transparent 70%)",
+                "radial-gradient(70% 90% at 30% 45%, #1a0d0e 0%, #0a0506 65%), radial-gradient(50% 70% at 85% 65%, color-mix(in oklab, var(--primary-glow) 45%, transparent), transparent 70%)",
             }}
           >
-          <h2
-            className="absolute inset-0 flex items-center justify-center text-center font-display font-light text-bone px-6"
-            style={{
-              fontSize: "clamp(28px, 6vw, 72px)",
-              letterSpacing: "0.04em",
-            }}
-          >
-              Where ideas become objects
+            {/* decorative circle ring */}
+            <div
+              aria-hidden
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none"
+              style={{
+                width: "clamp(220px, 36vw, 420px)",
+                height: "clamp(220px, 36vw, 420px)",
+                border: "1px solid color-mix(in oklab, var(--bone) 22%, transparent)",
+                boxShadow: "inset 0 0 80px color-mix(in oklab, var(--primary-glow) 25%, transparent)",
+              }}
+            />
+            <div
+              aria-hidden
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none"
+              style={{
+                width: "clamp(140px, 22vw, 260px)",
+                height: "clamp(140px, 22vw, 260px)",
+                border: "1px dashed color-mix(in oklab, var(--primary-glow) 55%, transparent)",
+              }}
+            />
+
+            <h2
+              className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+              style={{ color: "#F6EFE3" }}
+            >
+              <span
+                className="text-[10px] md:text-[11px] tracking-[0.4em] uppercase mb-4"
+                style={{ color: "color-mix(in oklab, var(--primary-glow) 80%, #F6EFE3)" }}
+              >
+                — Studio Manifesto —
+              </span>
+              <span
+                className="font-display font-light leading-[1.02]"
+                style={{
+                  fontSize: "clamp(30px, 6.4vw, 78px)",
+                  letterSpacing: "-0.01em",
+                  textShadow: "0 2px 30px rgba(0,0,0,0.55)",
+                }}
+              >
+                Where ideas{" "}
+                <em
+                  className="italic font-normal"
+                  style={{
+                    fontFamily: "'Instrument Serif', 'Cormorant Garamond', Georgia, serif",
+                    color: "#E8B86A",
+                  }}
+                >
+                  become
+                </em>{" "}
+                objects
+              </span>
             </h2>
-            <div className="absolute bottom-4 right-5 text-[12px] tracking-[0.3em] text-bone/50">
+            <div
+              className="absolute bottom-4 right-5 text-[12px] tracking-[0.3em]"
+              style={{ color: "color-mix(in oklab, #F6EFE3 60%, transparent)" }}
+            >
               2026
             </div>
           </div>
