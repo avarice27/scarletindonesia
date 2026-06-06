@@ -284,19 +284,33 @@ function WorkPage() {
           <p className="mt-3 text-sm text-ink/60">Coverage 34 provinsi — Sabang sampai Merauke.</p>
         </div>
 
-        <div className="mt-14 max-w-[1200px] mx-auto overflow-hidden"
+        <div className="mt-14 max-w-[1300px] mx-auto space-y-6"
           style={{
-            maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-            WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
           }}>
-          <div className="flex animate-marquee-slow whitespace-nowrap">
-            {BRANDS.concat(BRANDS).map((b, i) => (
-              <div key={i} className="shrink-0 px-10 md:px-14 flex items-center justify-center" style={{ height: 96 }}>
-                <BrandLogo name={b.name} domain={b.domain} logoUrl={b.logoUrl} />
+          {[0, 1, 2, 3].map((rowIdx) => {
+            const chunkSize = Math.ceil(BRANDS.length / 4);
+            const rowBrands = BRANDS.slice(rowIdx * chunkSize, (rowIdx + 1) * chunkSize);
+            // Ensure each row has enough items to fill the marquee
+            const filled = rowBrands.length >= 6 ? rowBrands : [...rowBrands, ...BRANDS].slice(0, Math.max(6, rowBrands.length));
+            const animClass =
+              rowIdx === 0 ? "animate-marquee"
+              : rowIdx === 1 ? "animate-marquee-reverse"
+              : rowIdx === 2 ? "animate-marquee-slow"
+              : "animate-marquee-reverse-slow";
+            return (
+              <div key={rowIdx} className="overflow-hidden">
+                <div className={`flex ${animClass} whitespace-nowrap`}>
+                  {filled.concat(filled).map((b, i) => (
+                    <div key={i} className="shrink-0 px-8 md:px-12 flex items-center justify-center" style={{ height: 80 }}>
+                      <BrandLogo name={b.name} domain={b.domain} logoUrl={b.logoUrl} />
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-
-          </div>
+            );
+          })}
         </div>
       </section>
     </main>
