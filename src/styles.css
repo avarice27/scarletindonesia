@@ -42,9 +42,9 @@
   --radius: 999px;
 
   /* Scarlet palette — locked from Canva */
-  --primary: oklch(0.55 0.21 25);            /* #C8102E scarlet */
+  --primary: #630000;                         /* maroon */
   --primary-foreground: oklch(0.98 0 0);
-  --primary-glow: oklch(0.65 0.22 28);
+  --primary-glow: #8a1a1a;
 
   --ink: oklch(0.13 0.02 22);                /* near-black #0E0708 */
   --wine: oklch(0.20 0.07 18);               /* dark wine #2E0A0E (form bg) */
