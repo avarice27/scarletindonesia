@@ -101,20 +101,19 @@ const BRANDS: { name: string; domain?: string; logoUrl?: string }[] = [
 ];
 
 
-function BrandLogo({ name, domain, logoUrl }: { name: string; domain?: string; logoUrl?: string }) {
+function BrandLogo({ name, domain, logoUrl, eager }: { name: string; domain?: string; logoUrl?: string; eager?: boolean }) {
   const sources = [
     ...(logoUrl ? [logoUrl] : []),
     ...(domain
       ? [
           `https://logo.clearbit.com/${domain}`,
-          `https://cdn.brandfetch.io/${domain}/w/256/h/128?c=1idV74Hax6dQbKbCSGu`,
           `https://icons.duckduckgo.com/ip3/${domain}.ico`,
-          `https://icon.horse/icon/${domain}`,
           `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
         ]
       : []),
   ];
   const [idx, setIdx] = useState(0);
+  const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(sources.length === 0);
 
   if (failed) {
@@ -130,16 +129,26 @@ function BrandLogo({ name, domain, logoUrl }: { name: string; domain?: string; l
     );
   }
   return (
-    <img
-      src={sources[idx]}
-      alt={name}
-      loading="lazy"
-      className="max-h-10 sm:max-h-12 md:max-h-14 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
-      onError={() => {
-        if (idx < sources.length - 1) setIdx(idx + 1);
-        else setFailed(true);
-      }}
-    />
+    <div className="relative flex items-center justify-center" style={{ minWidth: 90, height: "100%" }}>
+      {!loaded && (
+        <div className="absolute rounded-md bg-ink/5 animate-pulse" style={{ width: 80, height: 28 }} />
+      )}
+      <img
+        src={sources[idx]}
+        alt={name}
+        loading={eager ? "eager" : "lazy"}
+        decoding="async"
+        {...({ fetchpriority: eager ? "high" : "low" } as any)}
+        width={120}
+        height={48}
+        className={`max-h-10 sm:max-h-12 md:max-h-14 w-auto object-contain transition-opacity duration-300 ${loaded ? "opacity-95" : "opacity-0"}`}
+        onLoad={() => setLoaded(true)}
+        onError={() => {
+          if (idx < sources.length - 1) setIdx(idx + 1);
+          else setFailed(true);
+        }}
+      />
+    </div>
   );
 }
 
