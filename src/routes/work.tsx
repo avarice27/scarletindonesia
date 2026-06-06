@@ -107,6 +107,8 @@ function BrandLogo({ name, domain, logoUrl }: { name: string; domain?: string; l
     ...(domain
       ? [
           `https://logo.clearbit.com/${domain}`,
+          `https://cdn.brandfetch.io/${domain}/w/256/h/128?c=1idV74Hax6dQbKbCSGu`,
+          `https://icons.duckduckgo.com/ip3/${domain}.ico`,
           `https://icon.horse/icon/${domain}`,
           `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
         ]
@@ -117,9 +119,14 @@ function BrandLogo({ name, domain, logoUrl }: { name: string; domain?: string; l
 
   if (failed) {
     return (
-      <span className="font-display font-bold tracking-[0.18em] text-ink/50 text-sm md:text-base whitespace-nowrap">
-        {name.toUpperCase()}
-      </span>
+      <div
+        className="flex items-center justify-center px-4 md:px-5 rounded-full border border-ink/15 bg-bone"
+        style={{ height: "100%", minWidth: 90 }}
+      >
+        <span className="font-display font-semibold tracking-[0.14em] text-ink/70 text-[11px] md:text-xs whitespace-nowrap">
+          {name.toUpperCase()}
+        </span>
+      </div>
     );
   }
   return (
@@ -127,7 +134,7 @@ function BrandLogo({ name, domain, logoUrl }: { name: string; domain?: string; l
       src={sources[idx]}
       alt={name}
       loading="lazy"
-      className="max-h-12 md:max-h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+      className="max-h-10 sm:max-h-12 md:max-h-14 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
       onError={() => {
         if (idx < sources.length - 1) setIdx(idx + 1);
         else setFailed(true);
@@ -135,6 +142,7 @@ function BrandLogo({ name, domain, logoUrl }: { name: string; domain?: string; l
     />
   );
 }
+
 
 function WorkPage() {
   const [idx, setIdx] = useState(0);
