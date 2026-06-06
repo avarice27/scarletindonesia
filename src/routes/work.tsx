@@ -69,21 +69,72 @@ const PROJECTS = [
 ];
 
 
-const BRANDS = [
-  { name: "IKEA", logoUrl: logoIkea.url },
-  { name: "BVLGARI", logoUrl: logoBvlgari.url },
-  { name: "Nestlé", logoUrl: logoNestle.url },
-  { name: "Animore", logoUrl: logoAnimore.url },
-  { name: "Motherlove", logoUrl: logoMotherlove.url },
-  { name: "COTY", logoUrl: "" },
-  { name: "Guardian", logoUrl: "" },
-  { name: "Kylie Cosmetics", logoUrl: "" },
-  { name: "Verdilab", logoUrl: "" },
-  { name: "Interlac", logoUrl: "" },
-  { name: "Dr Teal's", logoUrl: "" },
-  { name: "Aeris Beauté", logoUrl: "" },
+const BRANDS: { name: string; domain?: string; logoUrl?: string }[] = [
+  { name: "Unilever", domain: "unilever.com" },
+  { name: "Cornetto", domain: "cornetto.com" },
+  { name: "Pepsodent", domain: "pepsodent.com" },
+  { name: "Axe", domain: "axe.com" },
+  { name: "Rexona", domain: "rexona.com" },
+  { name: "Bango", domain: "bango.co.id" },
+  { name: "Citra", domain: "citra.co.id" },
+  { name: "Fonterra", domain: "fonterra.com" },
+  { name: "Dove", domain: "dove.com" },
+  { name: "Pond's", domain: "ponds.com" },
+  { name: "SGM", domain: "sgm-nutrition.co.id" },
+  { name: "Magnum", domain: "magnumicecream.com" },
+  { name: "Sunsilk", domain: "sunsilk.com" },
+  { name: "Molto", domain: "molto.co.id" },
+  { name: "Glow & Lovely", domain: "glowandlovely.in" },
+  { name: "Kalbe Blackmores", domain: "blackmores.co.id" },
+  { name: "Clear", domain: "clear.com" },
+  { name: "Rinso", domain: "rinso.co.id" },
+  { name: "Uniqlo", domain: "uniqlo.com" },
+  { name: "Danone", domain: "danone.com" },
+  { name: "Anchor", domain: "anchordairy.com" },
+  { name: "Paddle Pop", domain: "paddlepop.com" },
+  { name: "Vaseline", domain: "vaseline.com" },
+  { name: "Standard Chartered", domain: "sc.com" },
+  { name: "Nutrilon Royal", domain: "nutricia.co.id" },
+  { name: "IKEA", logoUrl: logoIkea.url, domain: "ikea.com" },
+  { name: "BVLGARI", logoUrl: logoBvlgari.url, domain: "bulgari.com" },
+  { name: "Nestlé", logoUrl: logoNestle.url, domain: "nestle.com" },
 ];
 
+
+function BrandLogo({ name, domain, logoUrl }: { name: string; domain?: string; logoUrl?: string }) {
+  const sources = [
+    ...(logoUrl ? [logoUrl] : []),
+    ...(domain
+      ? [
+          `https://logo.clearbit.com/${domain}`,
+          `https://icon.horse/icon/${domain}`,
+          `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
+        ]
+      : []),
+  ];
+  const [idx, setIdx] = useState(0);
+  const [failed, setFailed] = useState(sources.length === 0);
+
+  if (failed) {
+    return (
+      <span className="font-display font-bold tracking-[0.18em] text-ink/50 text-sm md:text-base whitespace-nowrap">
+        {name.toUpperCase()}
+      </span>
+    );
+  }
+  return (
+    <img
+      src={sources[idx]}
+      alt={name}
+      loading="lazy"
+      className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+      onError={() => {
+        if (idx < sources.length - 1) setIdx(idx + 1);
+        else setFailed(true);
+      }}
+    />
+  );
+}
 
 function WorkPage() {
   const [idx, setIdx] = useState(0);
@@ -241,22 +292,7 @@ function WorkPage() {
           <div className="flex animate-marquee-slow whitespace-nowrap">
             {BRANDS.concat(BRANDS).map((b, i) => (
               <div key={i} className="shrink-0 px-10 md:px-14 flex items-center justify-center" style={{ height: 96 }}>
-                {b.logoUrl ? (
-                  <img
-                    src={b.logoUrl}
-                    alt={b.name}
-                    loading="lazy"
-                    className="max-h-12 md:max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
-                    onError={(e) => {
-                      const el = e.currentTarget;
-                      el.outerHTML = `<span class="font-display font-bold tracking-[0.18em] text-ink/50 text-sm md:text-base whitespace-nowrap">${b.name.toUpperCase()}</span>`;
-                    }}
-                  />
-                ) : (
-                  <span className="font-display font-bold tracking-[0.18em] text-ink/50 hover:text-ink/80 transition-colors text-sm md:text-base whitespace-nowrap">
-                    {b.name.toUpperCase()}
-                  </span>
-                )}
+                <BrandLogo name={b.name} domain={b.domain} logoUrl={b.logoUrl} />
               </div>
             ))}
 
