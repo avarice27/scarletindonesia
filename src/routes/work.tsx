@@ -37,6 +37,13 @@ export const Route = createFileRoute("/work")({
       { property: "og:title", content: "Our Work — Scarlet Indonesia" },
       { property: "og:description", content: "Guardian, BVLGARI, Kylie, IKEA, COTY and more. Every project executed end-to-end by Scarlet Indonesia." },
     ],
+    links: [
+      { rel: "preconnect", href: "https://logo.clearbit.com", crossOrigin: "" },
+      { rel: "preconnect", href: "https://icons.duckduckgo.com", crossOrigin: "" },
+      { rel: "preconnect", href: "https://www.google.com", crossOrigin: "" },
+      { rel: "dns-prefetch", href: "https://logo.clearbit.com" },
+      { rel: "dns-prefetch", href: "https://icons.duckduckgo.com" },
+    ],
   }),
   component: WorkPage,
 });
