@@ -311,7 +311,7 @@ function WorkPage() {
               <div key={rowIdx} className="overflow-hidden">
                 <div className={`flex ${animClass} whitespace-nowrap`}>
                   {filled.concat(filled).map((b, i) => (
-                    <div key={i} className="shrink-0 px-8 md:px-12 flex items-center justify-center" style={{ height: 80 }}>
+                    <div key={i} className="shrink-0 px-5 sm:px-7 md:px-10 flex items-center justify-center" style={{ height: 72 }}>
                       <BrandLogo name={b.name} domain={b.domain} logoUrl={b.logoUrl} />
                     </div>
                   ))}
