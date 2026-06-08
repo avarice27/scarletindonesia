@@ -389,7 +389,7 @@ function WorkPage() {
                 <div className={`flex ${animClass} whitespace-nowrap`}>
                   {filled.concat(filled).map((b, i) => (
                     <div key={i} className="shrink-0 px-5 sm:px-7 md:px-10 flex items-center justify-center" style={{ height: 72 }}>
-                      <BrandLogo name={b.name} domain={b.domain} logoUrl={b.logoUrl} eager={rowIdx === 0 && i < filled.length} />
+                      <BrandLogo name={b.name} logoUrl={b.logoUrl} eager={rowIdx === 0 && i < filled.length} />
                     </div>
                   ))}
                 </div>
