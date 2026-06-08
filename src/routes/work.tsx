@@ -22,11 +22,13 @@ import ky1 from "@/assets/work/kylie-1.jpg.asset.json";
 import ky2 from "@/assets/work/kylie-2.jpg.asset.json";
 import ky3 from "@/assets/work/kylie-3.jpg.asset.json";
 
-import logoIkea from "@/assets/logos/ikea.png.asset.json";
-import logoAnimore from "@/assets/logos/animore.png.asset.json";
-import logoMotherlove from "@/assets/logos/motherlove.png.asset.json";
-import logoBvlgari from "@/assets/logos/bvlgari.svg.asset.json";
-import logoNestle from "@/assets/logos/nestle.svg.asset.json";
+// Eager-load all brand-logo asset pointers via Vite glob
+const LOGO_MODULES = import.meta.glob("@/assets/brand-logos/*.asset.json", { eager: true }) as Record<string, { default: { url: string } }>;
+const LOGO_URL_BY_FILE: Record<string, string> = {};
+for (const path in LOGO_MODULES) {
+  const file = path.split("/").pop()!.replace(".asset.json", "");
+  LOGO_URL_BY_FILE[file] = LOGO_MODULES[path].default.url;
+}
 
 
 export const Route = createFileRoute("/work")({
