@@ -108,38 +108,12 @@
 .animate-float { animation: float-y 5s ease-in-out infinite; }
 .animate-bounce-down { animation: bounce-down 2s ease-in-out infinite; }
 
-/* Reveal: hidden until JS marks ready, then animates in when observed.
-   If JS never runs (no-JS / SSR fallback), keep visible. */
-.reveal { opacity: 1; transform: none; transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); will-change: opacity, transform; }
-.js-reveal-ready .reveal { opacity: 0; transform: translateY(32px); }
-.js-reveal-ready .reveal.is-visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: .08s; }
-.reveal-delay-2 { transition-delay: .16s; }
-.reveal-delay-3 { transition-delay: .24s; }
-.reveal-delay-4 { transition-delay: .32s; }
-
-/* Smooth scrolling + section transitions across all pages */
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-img, video { max-width: 100%; height: auto; }
-section { scroll-margin-top: 80px; }
-
-/* Respect users who prefer less motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .001ms !important;
-    scroll-behavior: auto !important;
-  }
-  .js-reveal-ready .reveal { opacity: 1; transform: none; }
-}
-
-/* Mobile typography & spacing polish */
-@media (max-width: 640px) {
-  body { font-size: 15px; }
-  .btn-pill { padding: .7rem 1.25rem; font-size: 13px; }
-  .ticker-item { font-size: 11px; letter-spacing: .18em; }
-}
+/* Reveal: visible by default; JS only animates if observer reaches an element while still off-screen */
+.reveal { opacity: 1; transform: none; transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
 
 /* Pill button (signature) */
 .btn-pill { display:inline-flex; align-items:center; gap:.6rem; padding:.85rem 1.6rem; border-radius:999px; font-family:var(--font-sans); font-size:14px; font-weight:600; letter-spacing:.02em; transition: transform .2s ease, background .2s ease, color .2s ease; }
