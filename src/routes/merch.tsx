@@ -69,7 +69,7 @@ function MerchPage() {
   return (
     <main className="bg-paper text-ink">
       {/* Hero */}
-      <header className="pt-32 md:pt-40 pb-16 px-6 md:px-12">
+      <header className="pt-32 md:pt-40 pb-16 px-6 md:px-12 reveal">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex justify-end mb-3">
             <p className="text-right text-[11px] tracking-[0.22em] uppercase text-ink/55 leading-[1.9]">
@@ -105,7 +105,7 @@ function MerchPage() {
 
           {/* Banner */}
           <div
-            className="mt-12 relative overflow-hidden rounded-xl"
+            className="mt-12 relative overflow-hidden rounded-xl reveal reveal-delay-1"
             style={{
               height: "clamp(260px, 42vh, 440px)",
               background:
@@ -177,12 +177,12 @@ function MerchPage() {
       {/* Services */}
       <section className="py-20 md:py-28 px-6 md:px-12" id="svc">
         <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-center gap-4 mb-5">
+          <div className="flex items-center gap-4 mb-5 reveal">
             <span className="sec-label">What we do</span>
             <span className="h-px flex-1 max-w-[120px] bg-border" />
           </div>
           <h2
-            className="font-display font-light max-w-3xl mb-12"
+            className="font-display font-light max-w-3xl mb-12 reveal reveal-delay-1"
             style={{ fontSize: "clamp(32px, 5.5vw, 64px)", lineHeight: 1.02 }}
           >
             Three production lines,{" "}
@@ -194,12 +194,12 @@ function MerchPage() {
             {SERVICES.map((s, i) => (
               <div
                 key={s.n}
-                className={`p-8 md:p-10 transition-colors hover:bg-bone ${
+                className={`group p-8 md:p-10 transition-all duration-500 hover:bg-bone/60 hover:shadow-soft reveal reveal-delay-${i + 1} ${
                   i < SERVICES.length - 1 ? "md:border-r border-border" : ""
                 } border-b md:border-b-0`}
               >
-                <div className="font-display text-sm text-ink/55">{s.n}</div>
-                <h3 className="font-display font-normal mt-5 mb-4" style={{ fontSize: 30 }}>
+                <div className="font-display text-sm text-ink/55 group-hover:text-primary transition-colors duration-300">{s.n}</div>
+                <h3 className="font-display font-normal mt-5 mb-4 group-hover:text-primary transition-colors duration-300" style={{ fontSize: 30 }}>
                   {s.title}
                 </h3>
                 <p className="text-ink/65 leading-relaxed text-[15px]">{s.body}</p>
@@ -207,14 +207,14 @@ function MerchPage() {
                   {s.items.map((it) => (
                     <li
                       key={it}
-                      className="flex justify-between text-[13px] py-2 border-b border-dotted border-border tracking-wide"
+                      className="flex justify-between text-[13px] py-2 border-b border-dotted border-border tracking-wide group-hover:border-primary/20 transition-colors duration-300"
                     >
-                      <span>{it}</span>
-                      <span className="text-ink/50">→</span>
+                      <span className="group-hover:text-ink transition-colors duration-300">{it}</span>
+                      <span className="text-ink/50 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300">→</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 text-[13px] font-bold tracking-[0.08em] uppercase text-primary">
+                <div className="mt-6 text-[13px] font-bold tracking-[0.08em] uppercase text-primary opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                   Explore →
                 </div>
               </div>
@@ -226,8 +226,8 @@ function MerchPage() {
       {/* Stats */}
       <section className="py-16 px-6 md:px-12 border-t border-b border-border">
         <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
-          {STATS.map((st) => (
-            <div key={st.v}>
+          {STATS.map((st, i) => (
+            <div key={st.v} className={`reveal reveal-delay-${i}`}>
               <h4
                 className="font-display font-light leading-none"
                 style={{ fontSize: "clamp(40px, 6vw, 60px)" }}
@@ -246,7 +246,7 @@ function MerchPage() {
         className="py-20 md:py-28 overflow-hidden"
         style={{ background: "var(--ink)", color: "var(--bone)" }}
       >
-        <div className="px-6 md:px-12 flex flex-wrap justify-between items-end gap-6 mb-12 max-w-[1400px] mx-auto">
+        <div className="px-6 md:px-12 flex flex-wrap justify-between items-end gap-6 mb-12 max-w-[1400px] mx-auto reveal">
           <div>
             <div className="flex items-center gap-4 mb-4">
               <span className="text-[11px] tracking-[0.25em] uppercase font-bold" style={{ color: "var(--primary-glow)" }}>
@@ -279,10 +279,18 @@ function MerchPage() {
             className="flex gap-5 w-max animate-marquee-slow group-hover:[animation-play-state:paused] px-6 md:px-12"
           >
             {slides.map((w, i) => (
-              <div key={i} className="shrink-0 w-[280px] md:w-[320px]">
-                <div className="relative w-full aspect-[320/420] rounded-md overflow-hidden">
+              <div
+                key={i}
+                className="shrink-0 w-[280px] md:w-[320px] group/card"
+              >
+                <div
+                  className="relative w-full aspect-[320/420] rounded-xl overflow-hidden border border-bone/10 transition-all duration-500 hover:border-primary-glow/40 hover:shadow-elegant"
+                  style={{
+                    boxShadow: "0 4px 20px -8px rgba(0,0,0,0.5)",
+                  }}
+                >
                   <span
-                    className="absolute top-3.5 left-3.5 z-10 text-[11px] font-bold tracking-[0.1em] py-1.5 px-3 rounded-full text-bone"
+                    className="absolute top-3.5 left-3.5 z-10 text-[11px] font-bold tracking-[0.1em] py-1.5 px-3 rounded-full text-bone transition-all duration-300 group-hover/card:px-4"
                     style={{ background: "var(--primary)" }}
                   >
                     {w.tag}
@@ -290,12 +298,19 @@ function MerchPage() {
                   <img
                     src={artSrc(w.c, w.t)}
                     alt={w.t}
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.07]"
-                    style={{ filter: "grayscale(0.15)" }}
+                    className="w-full h-full object-cover transition-all duration-700 group-hover/card:scale-[1.07] group-hover/card:grayscale-0"
+                    style={{ filter: "grayscale(0.35)" }}
+                  />
+                  {/* Hover overlay glow */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--primary-glow) 20%, transparent), transparent 70%)",
+                    }}
                   />
                 </div>
-                <div className="flex justify-between items-baseline mt-3 border-t border-bone/15 pt-3">
-                  <h4 className="font-display font-normal text-lg">{w.t}</h4>
+                <div className="flex justify-between items-baseline mt-4 border-t border-bone/10 pt-3">
+                  <h4 className="font-display font-normal text-lg group-hover/card:text-primary-glow transition-colors duration-300">{w.t}</h4>
                   <span className="text-[12px] text-bone/55 tracking-[0.1em]">{w.s}</span>
                 </div>
               </div>
@@ -305,7 +320,7 @@ function MerchPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 px-6 text-center">
+      <section className="py-24 md:py-32 px-6 text-center reveal">
         <span className="sec-label">Got an idea?</span>
         <h2
           className="mt-6 font-display font-light leading-[0.92] tracking-tight"
@@ -316,7 +331,7 @@ function MerchPage() {
           it together.
         </h2>
         <div className="mt-10">
-          <Link to="/contact" className="btn-pill btn-pill-primary">
+          <Link to="/contact" className="btn-pill btn-pill-primary hover:shadow-elegant transition-shadow duration-300">
             Talk to the Scarlet Team →
           </Link>
         </div>
