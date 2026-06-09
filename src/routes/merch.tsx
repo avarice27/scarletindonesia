@@ -290,7 +290,7 @@ function MerchPage() {
                     {w.tag}
                   </span>
                   <img
-                    src={artSrc(w.c, w.t)}
+                    src={w.img}
                     alt={w.t}
                     className="w-full h-full object-cover transition-all duration-700 group-hover/card:scale-[1.07] group-hover/card:grayscale-0"
                     style={{ filter: "grayscale(0.35)" }}
