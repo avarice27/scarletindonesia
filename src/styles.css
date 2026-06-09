@@ -137,5 +137,26 @@
 .ticker-item { font-family: var(--font-display); font-weight:600; font-size: 13px; letter-spacing:.22em; text-transform:uppercase; }
 .ticker-dot { color: var(--primary-foreground); opacity:.5; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Smoother momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
+}
 body { overflow-x: hidden; }
+
+/* Reveal: hidden until visible (smoother scroll-in) */
+.js-reveal-ready .reveal { opacity: 0; transform: translateY(28px); }
+.reveal.is-visible { opacity: 1 !important; transform: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .animate-marquee, .animate-marquee-slow, .animate-marquee-reverse, .animate-marquee-reverse-slow, .animate-float, .animate-bounce-down { animation: none !important; transition: none !important; }
+}
+
+/* Mobile polish */
+@media (max-width: 767px) {
+  /* Slightly tighter display headings on phones */
+  h1, h2 { letter-spacing: -0.025em; }
+  /* Bigger tap targets for pills */
+  .btn-pill { padding: 0.9rem 1.4rem; }
+}
