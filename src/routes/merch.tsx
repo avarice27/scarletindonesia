@@ -1,4 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import ladermaAsset from "@/assets/merch/laderma.jpg.asset.json";
+import ovoAsset from "@/assets/merch/ovo.jpg.asset.json";
+import drtealsAsset from "@/assets/merch/drteals.jpg.asset.json";
+import garnierAsset from "@/assets/merch/garnier.jpg.asset.json";
+import grabAsset from "@/assets/merch/grab.jpg.asset.json";
+import tecnoAsset from "@/assets/merch/tecno.jpg.asset.json";
+import flipAsset from "@/assets/merch/flip.jpg.asset.json";
 
 export const Route = createFileRoute("/merch")({
   head: () => ({
