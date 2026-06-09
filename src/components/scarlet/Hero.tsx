@@ -12,10 +12,11 @@ export function Hero() {
           src={heroVideo.url}
           autoPlay
           loop
+          muted
           playsInline
-          controls
           className="w-full h-full object-cover opacity-50"
         />
+
         <div
           className="absolute inset-0"
           style={{
