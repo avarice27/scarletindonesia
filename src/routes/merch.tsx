@@ -47,28 +47,15 @@ const STATS = [
   { v: "3", l: "End-to-end services under one roof" },
 ];
 
-const WORKS = [
-  { tag: "MERCH", t: "Hoodie Series", s: "Streetwear / 2025", c: "#2b2620" },
-  { tag: "PRINT", t: "Large Banner", s: "Festival / 2025", c: "#5a2421" },
-  { tag: "MERCH", t: "Tote Bag Eco", s: "Campaign / 2024", c: "#3a352d" },
-  { tag: "PROD", t: "Packaging Box", s: "Skincare / 2025", c: "#262b2a" },
-  { tag: "PRINT", t: "Business Cards", s: "Identity / 2024", c: "#2b2620" },
-  { tag: "MERCH", t: "Mug Collection", s: "Coffee Co. / 2025", c: "#4a342a" },
-  { tag: "PROD", t: "Apparel Bulk", s: "Corporate / 2025", c: "#222222" },
-  { tag: "PRINT", t: "Brochure Set", s: "Profile / 2024", c: "#3a2c2a" },
+const WORKS: { tag: string; t: string; s: string; img: string }[] = [
+  { tag: "MERCH", t: "Laderma", s: "Skincare / 2025", img: ladermaAsset.url },
+  { tag: "MERCH", t: "OVO", s: "Fintech / 2025", img: ovoAsset.url },
+  { tag: "MERCH", t: "Dr. Teal's", s: "Wellness / 2025", img: drtealsAsset.url },
+  { tag: "MERCH", t: "Garnier", s: "Beauty / 2025", img: garnierAsset.url },
+  { tag: "MERCH", t: "Grab", s: "Mobility / 2025", img: grabAsset.url },
+  { tag: "MERCH", t: "Tecno", s: "Tech / 2025", img: tecnoAsset.url },
+  { tag: "MERCH", t: "Flip", s: "Fintech / 2025", img: flipAsset.url },
 ];
-
-function artSrc(c: string, label: string) {
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='320' height='420'>
-    <defs><linearGradient id='g' x1='0' y1='0' x2='0.6' y2='1'>
-    <stop offset='0' stop-color='${c}'/><stop offset='1' stop-color='#1a0d0e'/></linearGradient></defs>
-    <rect width='320' height='420' fill='url(#g)'/>
-    <circle cx='240' cy='110' r='90' fill='#fff' opacity='0.06'/>
-    <rect x='40' y='250' width='150' height='150' rx='8' fill='#fff' opacity='0.06'/>
-    <text x='32' y='400' font-family='Georgia,serif' font-size='22' fill='#F6F1EA' opacity='0.9'>${label}</text>
-  </svg>`;
-  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
-}
 
 function MerchPage() {
   const slides = [...WORKS, ...WORKS];
