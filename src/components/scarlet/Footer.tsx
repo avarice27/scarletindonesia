@@ -14,7 +14,7 @@ export function Footer() {
         <div>
           <div className="text-[11px] tracking-[0.3em] uppercase text-primary font-semibold mb-5">Explore</div>
           <ul className="space-y-3 list-none m-0 p-0">
-            {[["/work", "Work"], ["/about", "About"], ["/contact", "Contact"]].map(([to, label]) => (
+            {[["/work", "Work"], ["/about", "About"], ["/merch", "Merch"], ["/contact", "Contact"]].map(([to, label]) => (
               <li key={to}>
                 <Link to={to} className="story-link text-sm text-ink/75 hover:text-ink">{label}</Link>
               </li>
