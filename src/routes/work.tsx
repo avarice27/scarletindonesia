@@ -288,18 +288,18 @@ function WorkPage() {
             }}
           />
 
-          <div className="max-w-[1200px] mx-auto flex items-center justify-between text-bone">
-            <button onClick={prev} aria-label="Previous" className="w-11 h-11 rounded-full border-2 border-bone/70 hover:bg-bone hover:text-primary transition flex items-center justify-center">
+          <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-3 text-bone">
+            <button onClick={prev} aria-label="Previous" className="shrink-0 w-10 h-10 md:w-11 md:h-11 rounded-full border-2 border-bone/70 hover:bg-bone hover:text-primary transition flex items-center justify-center text-xl">
               ‹
             </button>
-            <h2 key={`title-${idx}`} className="font-display font-semibold text-xl md:text-3xl text-center animate-fade-in">
+            <h2 key={`title-${idx}`} className="font-display font-semibold text-base sm:text-xl md:text-3xl text-center animate-fade-in min-w-0 flex-1 px-2 leading-tight">
               {project.title}
             </h2>
-            <button onClick={next} aria-label="Next" className="w-11 h-11 rounded-full border-2 border-bone/70 hover:bg-bone hover:text-primary transition flex items-center justify-center">
+            <button onClick={next} aria-label="Next" className="shrink-0 w-10 h-10 md:w-11 md:h-11 rounded-full border-2 border-bone/70 hover:bg-bone hover:text-primary transition flex items-center justify-center text-xl">
               ›
-
             </button>
           </div>
+
         </div>
         <div className="text-center mt-10">
           <a href="#detail" className="btn-pill btn-pill-outline">See Details ↓</a>
