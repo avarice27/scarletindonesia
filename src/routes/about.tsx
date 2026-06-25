@@ -111,7 +111,7 @@ function AboutPage() {
           </div>
         </div>
         <div className="relative overflow-hidden group min-h-[300px] md:min-h-[420px]">
-          <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1400&q=80" alt="Nationwide festival" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img src={nationwideFestival.url} alt="Nationwide festival" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent" />
           <div className="absolute inset-0 flex flex-col justify-end p-10">
             <span className="text-[10px] tracking-[0.4em] uppercase text-bone/90">Nationwide Festival</span>
