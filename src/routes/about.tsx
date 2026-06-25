@@ -4,6 +4,8 @@ import edgeTL from "@/assets/about/win_0374.jpg.asset.json";
 import edgeTR from "@/assets/about/win_1524.jpg.asset.json";
 import edgeBL from "@/assets/about/ivn_0014.jpg.asset.json";
 import edgeBR from "@/assets/about/grdn_516.jpg.asset.json";
+import luxuryLaunch from "@/assets/about/loreal-launch.jpg.asset.json";
+import nationwideFestival from "@/assets/about/festival-bogasari.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
