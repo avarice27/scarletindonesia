@@ -139,7 +139,7 @@ function AboutPage() {
             </p>
           </div>
           <div className="relative aspect-[4/3] rounded-3xl overflow-hidden reveal reveal-delay-1">
-            <img src="https://images.unsplash.com/photo-1517232115160-ff93364542dd?w=1400&q=80" alt="Timeline" className="absolute inset-0 w-full h-full object-cover" style={{ filter: "hue-rotate(-15deg) saturate(1.3)" }} />
+            <img src={timelineImg.url} alt="Timeline" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-ink/30" />
             <div className="absolute inset-0 flex items-end justify-around p-8 text-bone font-display font-bold text-xl md:text-2xl tracking-wider">
               {["2015", "2018", "2022", "2026"].map((y) => (
