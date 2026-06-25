@@ -4,6 +4,8 @@ import edgeTL from "@/assets/about/win_0374.jpg.asset.json";
 import edgeTR from "@/assets/about/win_1524.jpg.asset.json";
 import edgeBL from "@/assets/about/ivn_0014.jpg.asset.json";
 import edgeBR from "@/assets/about/grdn_516.jpg.asset.json";
+import luxuryLaunch from "@/assets/about/loreal-launch.jpg.asset.json";
+import nationwideFestival from "@/assets/about/festival-bogasari.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -99,7 +101,7 @@ function AboutPage() {
       {/* 3. Best of both worlds */}
       <section className="grid md:grid-cols-2 min-h-[420px]">
         <div className="relative overflow-hidden group min-h-[300px] md:min-h-[420px]">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1400&q=80" alt="Luxury launch" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img src={luxuryLaunch.url} alt="Luxury launch" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
           <div className="absolute inset-0 flex flex-col justify-between p-10">
             <span className="text-[10px] tracking-[0.4em] uppercase text-bone/80">Luxury Launch</span>
@@ -109,7 +111,7 @@ function AboutPage() {
           </div>
         </div>
         <div className="relative overflow-hidden group min-h-[300px] md:min-h-[420px]">
-          <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1400&q=80" alt="Nationwide festival" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img src={nationwideFestival.url} alt="Nationwide festival" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent" />
           <div className="absolute inset-0 flex flex-col justify-end p-10">
             <span className="text-[10px] tracking-[0.4em] uppercase text-bone/90">Nationwide Festival</span>
