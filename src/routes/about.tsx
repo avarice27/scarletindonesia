@@ -6,6 +6,7 @@ import edgeBL from "@/assets/about/ivn_0014.jpg.asset.json";
 import edgeBR from "@/assets/about/grdn_516.jpg.asset.json";
 import luxuryLaunch from "@/assets/about/loreal-launch.jpg.asset.json";
 import nationwideFestival from "@/assets/about/festival-bogasari.png.asset.json";
+import timelineImg from "@/assets/about/win_2248.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
