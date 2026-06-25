@@ -1,5 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TickerTape } from "@/components/scarlet/TickerTape";
+import edgeTL from "@/assets/about/win_0374.jpg.asset.json";
+import edgeTR from "@/assets/about/win_1524.jpg.asset.json";
+import edgeBL from "@/assets/about/ivn_0014.jpg.asset.json";
+import edgeBR from "@/assets/about/grdn_516.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -71,14 +75,9 @@ function AboutPage() {
       <section className="py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-[1300px] mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="grid grid-cols-2 gap-3 reveal">
-            {[
-              "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=700&q=80",
-              "https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=700&q=80",
-              "https://images.unsplash.com/photo-1605733513597-a8f8341084e6?w=700&q=80",
-              "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=700&q=80",
-            ].map((src, i) => (
+            {[edgeTL.url, edgeTR.url, edgeBL.url, edgeBR.url].map((src, i) => (
               <div key={i} className="aspect-square overflow-hidden rounded-2xl">
-                <img src={src} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ filter: "saturate(1.1) hue-rotate(-5deg)" }} />
+                <img src={src} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
             ))}
           </div>
