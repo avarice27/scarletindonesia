@@ -258,7 +258,7 @@ function MerchPage() {
             </h2>
           </div>
           <p className="max-w-xs text-bone/55 leading-relaxed text-sm">
-            The gallery scrolls automatically — hover to pause, and hover any photo for full color.
+            The gallery scrolls automatically hover to pause, and hover any photo for full color.
           </p>
         </div>
 
