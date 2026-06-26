@@ -85,7 +85,7 @@ function MerchPage() {
 
           <div className="mt-12 grid md:grid-cols-2 gap-8 md:gap-10 items-end">
             <p className="max-w-md text-base md:text-[17px] text-ink/65 leading-relaxed">
-              A production studio that turns ideas into tangible products —
+              A production studio that turns ideas into tangible products
               custom merchandise, large-scale production, and high-precision
               printing, built to a standard that never compromises.
             </p>
