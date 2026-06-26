@@ -26,7 +26,7 @@ export function Footer() {
           <ul className="space-y-3 list-none m-0 p-0 text-sm text-ink/75">
             <li>hello@scarletindonesia.com</li>
             <li>{"\n"}</li>
-            <li>Jakarta, Indonesia</li>
+            <li>{"\n"}</li>
           </ul>
         </div>
         <div>
