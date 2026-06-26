@@ -24,8 +24,8 @@ export function Footer() {
         <div>
           <div className="text-[11px] tracking-[0.3em] uppercase text-primary font-semibold mb-5">Contact</div>
           <ul className="space-y-3 list-none m-0 p-0 text-sm text-ink/75">
-            <li>hello@scarletkreasi.com</li>
-            <li>+62 800 0000 000</li>
+            <li>hello@scarletindonesia.com</li>
+            <li>{"\n"}</li>
             <li>Jakarta, Indonesia</li>
           </ul>
         </div>

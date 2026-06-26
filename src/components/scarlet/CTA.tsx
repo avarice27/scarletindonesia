@@ -12,8 +12,8 @@ export function CTA() {
             Tell us your goals — we'll come back with concept, timeline, and budget within 48 hours.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="mailto:hello@scarletkreasi.com" data-hover className="btn-sweep inline-flex items-center gap-2.5 bg-accent text-accent-foreground px-10 py-4 font-display text-xs tracking-[0.2em] uppercase font-bold">
-              hello@scarletkreasi.com →
+            <a href="mailto:hello@scarletindonesia.com" data-hover className="btn-sweep inline-flex items-center gap-2.5 bg-accent text-accent-foreground px-10 py-4 font-display text-xs tracking-[0.2em] uppercase font-bold">
+              hello@scarletindonesia.com →
             </a>
             <a href="https://wa.me/628000000000" data-hover className="px-9 py-3.5 border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors font-display text-[11px] tracking-[0.18em] uppercase font-semibold">
               WhatsApp Us
