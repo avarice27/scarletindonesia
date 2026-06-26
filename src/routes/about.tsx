@@ -7,6 +7,8 @@ import edgeBR from "@/assets/about/grdn_516.jpg.asset.json";
 import luxuryLaunch from "@/assets/about/loreal-launch.jpg.asset.json";
 import nationwideFestival from "@/assets/about/festival-bogasari.png.asset.json";
 import timelineImg from "@/assets/about/win_2248.jpg.asset.json";
+import mapLeft from "@/assets/about/map-left.png.asset.json";
+import mapRight from "@/assets/about/map-right.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -175,11 +177,11 @@ function AboutPage() {
       <section className="py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-[1300px] mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="grid grid-cols-2 gap-4 reveal">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=900&q=80" alt="LED map" className="w-full h-full object-cover" style={{ filter: "saturate(1.4) hue-rotate(-15deg)" }} />
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-primary/5">
+              <img src={mapLeft.url} alt="Indonesia map — west" className="w-full h-full object-cover object-right hover:scale-105 transition-transform duration-700" />
             </div>
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden mt-10">
-              <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80" alt="Mobile" className="w-full h-full object-cover" />
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden mt-10 bg-primary/5">
+              <img src={mapRight.url} alt="Indonesia map — east" className="w-full h-full object-cover object-left hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
           <div className="reveal reveal-delay-1">
