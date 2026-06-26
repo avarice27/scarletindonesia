@@ -32,7 +32,7 @@ export function Footer() {
         <div>
           <div className="text-[11px] tracking-[0.3em] uppercase text-primary font-semibold mb-5">Social</div>
           <ul className="space-y-3 list-none m-0 p-0 text-sm">
-            {["Instagram", "TikTok", "LinkedIn", "YouTube"].map((s) => (
+            {["Instagram"].map((s) => (
               <li key={s}><a href="#" className="story-link text-ink/75 hover:text-ink">{s}</a></li>
             ))}
           </ul>
