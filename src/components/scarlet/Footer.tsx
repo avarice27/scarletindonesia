@@ -39,7 +39,7 @@ export function Footer() {
         </div>
       </div>
       <div className="max-w-[1400px] mx-auto mt-14 pt-6 border-t border-border flex flex-col md:flex-row gap-3 justify-between text-[10px] tracking-[0.25em] uppercase text-muted-foreground">
-        <span className="whitespace-pre-line">© 2026 SCARLET KREASI INDONESIA.{"\n\u00A0"}ALL RIGHTS RESERVED.</span>
+        <span className="whitespace-pre-line">© 2026 SCARLET KREASI INDONESIA.{"\n\u00A0"}</span>
         <span>Brand Activation · Event · Production · Merchandise</span>
       </div>
     </footer>
