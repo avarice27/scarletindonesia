@@ -9,6 +9,7 @@ import nationwideFestival from "@/assets/about/festival-bogasari.png.asset.json"
 import timelineImg from "@/assets/about/win_2248.jpg.asset.json";
 import mapLeft from "@/assets/about/map-left.png.asset.json";
 import mapRight from "@/assets/about/map-right.png.asset.json";
+import impactBanner from "@/assets/about/win_0676.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
