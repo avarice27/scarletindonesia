@@ -77,7 +77,7 @@ export function Hero() {
           className="mt-8 mx-auto max-w-2xl text-base md:text-lg text-bone/75 font-light leading-relaxed animate-fade-up"
           style={{ animationDelay: ".35s" }}
         >
-          From premium product launches to nationwide festivals executed down to the last detail.
+          From premium product launches to nationwide festivals{"\u00A0"}<br />executed down to the last detail.
         </p>
       </div>
 
