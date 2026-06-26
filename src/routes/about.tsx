@@ -204,12 +204,12 @@ function AboutPage() {
       <section className="py-20 md:py-28 px-6 md:px-12 bg-bone">
         <div className="max-w-[1300px] mx-auto">
           <div className="text-center mb-14 reveal">
-            <span className="sec-label">Our Values</span>
+            <span className="sec-label"></span>
             <h2 className="mt-4 font-display font-semibold" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
               Our&nbsp;Values
             </h2>
             <p className="mt-5 max-w-2xl mx-auto text-ink/70">
-              End-to-end brand activation that combines creativity, strategy, and flawless execution to deliver measurable results.
+              {"\n"}
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
