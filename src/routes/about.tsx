@@ -229,7 +229,7 @@ function AboutPage() {
 
       {/* 8. Impact banner */}
       <section className="relative min-h-[420px] flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1800&q=80" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ filter: "saturate(1.2)" }} />
+        <img src={impactBanner.url} alt="Bvlgari mall activation" className="absolute inset-0 w-full h-full object-cover" style={{ filter: "saturate(1.2)" }} />
         <div className="absolute inset-0 bg-ink/55" />
         <div className="relative z-10 px-6 text-center text-bone max-w-3xl reveal">
           <h2 className="font-display font-semibold leading-tight" style={{ fontSize: "clamp(36px, 5vw, 72px)" }}>
