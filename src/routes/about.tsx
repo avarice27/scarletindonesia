@@ -206,7 +206,7 @@ function AboutPage() {
           <div className="text-center mb-14 reveal">
             <span className="sec-label">Our Values</span>
             <h2 className="mt-4 font-display font-semibold" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
-              We Turn Ideas Into <em className="italic-red">Impact</em>
+              Our&nbsp;Values
             </h2>
             <p className="mt-5 max-w-2xl mx-auto text-ink/70">
               End-to-end brand activation that combines creativity, strategy, and flawless execution to deliver measurable results.
