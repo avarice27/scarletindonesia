@@ -10,6 +10,12 @@ import timelineImg from "@/assets/about/win_2248.jpg.asset.json";
 import mapLeft from "@/assets/about/map-left.png.asset.json";
 import mapRight from "@/assets/about/map-right.png.asset.json";
 import impactBanner from "@/assets/about/win_0676.jpg.asset.json";
+import svcEvents from "@/assets/services/events.jpg.asset.json";
+import svcBooth from "@/assets/services/booth.jpg.asset.json";
+import svcRetail from "@/assets/services/retail.jpg.asset.json";
+import svcBranding from "@/assets/services/branding.jpg.asset.json";
+import svcKol from "@/assets/services/kol.jpg.asset.json";
+import svcMerch from "@/assets/services/merch.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
