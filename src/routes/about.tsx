@@ -37,12 +37,12 @@ const VALUES = [
 ];
 
 const SERVICES = [
-  { name: "Offline & Online Events", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" },
-  { name: "Booth & Production", img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" },
-  { name: "Retail & Field Team", img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" },
-  { name: "Branding & Creative", img: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=800&q=80" },
-  { name: "Social Media & KOL", img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80" },
-  { name: "Print & Merchandise", img: "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80" },
+  { name: "Offline & Online Events", img: svcEvents.url },
+  { name: "Booth & Production", img: svcBooth.url },
+  { name: "Retail & Field Team", img: svcRetail.url },
+  { name: "Branding & Creative", img: svcBranding.url },
+  { name: "Social Media & KOL", img: svcKol.url },
+  { name: "Print & Merchandise", img: svcMerch.url },
 ];
 
 function AboutPage() {
