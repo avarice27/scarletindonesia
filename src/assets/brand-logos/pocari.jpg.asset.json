@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "f5e51d68-4ad4-4989-8d7f-41648c0be7f6",
+  "asset_id": "ab4726fc-0a20-4bc3-8de1-2c4e6dceb9e3",
   "project_id": "18cecc63-8c3a-4d55-9612-20c71c44f96b",
-  "url": "/__l5e/assets-v1/f5e51d68-4ad4-4989-8d7f-41648c0be7f6/pocari.jpg",
-  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/f5e51d68-4ad4-4989-8d7f-41648c0be7f6/pocari.jpg",
-  "original_filename": "pocari.jpg",
-  "size": 12000,
-  "content_type": "image/jpeg",
-  "created_at": "2026-06-08T16:18:38Z"
+  "url": "/__l5e/assets-v1/ab4726fc-0a20-4bc3-8de1-2c4e6dceb9e3/pocari.png",
+  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/ab4726fc-0a20-4bc3-8de1-2c4e6dceb9e3/pocari.png",
+  "original_filename": "pocari.png",
+  "size": 57532,
+  "content_type": "image/png",
+  "created_at": "2026-07-21T16:16:57Z"
 }

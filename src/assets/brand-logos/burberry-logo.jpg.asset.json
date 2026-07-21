@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "afc770da-eb0d-4413-9f34-deac281f04b5",
+  "asset_id": "545a8dd3-015b-4b46-911c-5f13ad1c0507",
   "project_id": "18cecc63-8c3a-4d55-9612-20c71c44f96b",
-  "url": "/__l5e/assets-v1/afc770da-eb0d-4413-9f34-deac281f04b5/burberry-logo.jpg",
-  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/afc770da-eb0d-4413-9f34-deac281f04b5/burberry-logo.jpg",
-  "original_filename": "burberry-logo.jpg",
-  "size": 20055,
-  "content_type": "image/jpeg",
-  "created_at": "2026-06-08T16:20:51Z"
+  "url": "/__l5e/assets-v1/545a8dd3-015b-4b46-911c-5f13ad1c0507/burberry.png",
+  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/545a8dd3-015b-4b46-911c-5f13ad1c0507/burberry.png",
+  "original_filename": "burberry.png",
+  "size": 96202,
+  "content_type": "image/png",
+  "created_at": "2026-07-21T16:12:37Z"
 }

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "1c99cf70-b50e-4aec-9c70-227340d158ef",
+  "asset_id": "694c750a-f980-445b-b0be-093dd7437227",
   "project_id": "18cecc63-8c3a-4d55-9612-20c71c44f96b",
-  "url": "/__l5e/assets-v1/1c99cf70-b50e-4aec-9c70-227340d158ef/blibli.jpg",
-  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/1c99cf70-b50e-4aec-9c70-227340d158ef/blibli.jpg",
-  "original_filename": "blibli.jpg",
-  "size": 27053,
-  "content_type": "image/jpeg",
-  "created_at": "2026-06-08T16:19:15Z"
+  "url": "/__l5e/assets-v1/694c750a-f980-445b-b0be-093dd7437227/blibli.png",
+  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/694c750a-f980-445b-b0be-093dd7437227/blibli.png",
+  "original_filename": "blibli.png",
+  "size": 193604,
+  "content_type": "image/png",
+  "created_at": "2026-07-21T16:12:20Z"
 }
