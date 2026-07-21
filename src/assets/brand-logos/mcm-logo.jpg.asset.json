@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "88bdb648-3ce1-4078-8a47-23c93b51ed88",
+  "asset_id": "2e1cc0f4-7321-45d1-9d2d-aad410d8a670",
   "project_id": "18cecc63-8c3a-4d55-9612-20c71c44f96b",
-  "url": "/__l5e/assets-v1/88bdb648-3ce1-4078-8a47-23c93b51ed88/mcm-logo.jpg",
-  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/88bdb648-3ce1-4078-8a47-23c93b51ed88/mcm-logo.jpg",
-  "original_filename": "mcm-logo.jpg",
-  "size": 57093,
-  "content_type": "image/jpeg",
-  "created_at": "2026-06-08T16:22:58Z"
+  "url": "/__l5e/assets-v1/2e1cc0f4-7321-45d1-9d2d-aad410d8a670/mcm.png",
+  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/2e1cc0f4-7321-45d1-9d2d-aad410d8a670/mcm.png",
+  "original_filename": "mcm.png",
+  "size": 19393,
+  "content_type": "image/png",
+  "created_at": "2026-07-21T16:15:49Z"
 }

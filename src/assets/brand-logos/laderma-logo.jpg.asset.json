@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "523a6a30-0878-4a4e-b1d4-032c52dc7fa1",
+  "asset_id": "fe8b8e34-be96-4263-80c8-96bb36062d68",
   "project_id": "18cecc63-8c3a-4d55-9612-20c71c44f96b",
-  "url": "/__l5e/assets-v1/523a6a30-0878-4a4e-b1d4-032c52dc7fa1/laderma-logo.jpg",
-  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/523a6a30-0878-4a4e-b1d4-032c52dc7fa1/laderma-logo.jpg",
-  "original_filename": "laderma-logo.jpg",
-  "size": 9655,
-  "content_type": "image/jpeg",
-  "created_at": "2026-06-08T16:18:10Z"
+  "url": "/__l5e/assets-v1/fe8b8e34-be96-4263-80c8-96bb36062d68/laderma.png",
+  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/fe8b8e34-be96-4263-80c8-96bb36062d68/laderma.png",
+  "original_filename": "laderma.png",
+  "size": 31994,
+  "content_type": "image/png",
+  "created_at": "2026-07-21T16:14:10Z"
 }
