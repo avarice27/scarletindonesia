@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "3ae6ed52-a869-4706-8c1a-ee5d082f6b02",
+  "asset_id": "4ba8ed92-25ad-4235-87d0-5600b4feae5d",
   "project_id": "18cecc63-8c3a-4d55-9612-20c71c44f96b",
-  "url": "/__l5e/assets-v1/3ae6ed52-a869-4706-8c1a-ee5d082f6b02/logo-dr-teals.pdf.pdf",
-  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/3ae6ed52-a869-4706-8c1a-ee5d082f6b02/logo-dr-teals.pdf.pdf",
-  "original_filename": "logo-dr-teals.pdf.pdf",
-  "size": 53442,
-  "content_type": "application/pdf",
-  "created_at": "2026-06-08T16:23:27Z"
+  "url": "/__l5e/assets-v1/4ba8ed92-25ad-4235-87d0-5600b4feae5d/dr-teals.png",
+  "r2_key": "a/v1/18cecc63-8c3a-4d55-9612-20c71c44f96b/4ba8ed92-25ad-4235-87d0-5600b4feae5d/dr-teals.png",
+  "original_filename": "dr-teals.png",
+  "size": 503420,
+  "content_type": "image/png",
+  "created_at": "2026-07-21T16:19:10Z"
 }
