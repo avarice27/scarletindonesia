@@ -262,10 +262,21 @@ function BrandLogo({ name, domain, logoUrl, eager }: { name: string; domain?: st
 function WorkPage() {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [detailIdx, setDetailIdx] = useState(0);
   const project = PROJECTS[idx];
+  const detail = PROJECTS[detailIdx];
   const prev = () => setIdx((i) => (i - 1 + PROJECTS.length) % PROJECTS.length);
   const next = () => setIdx((i) => (i + 1) % PROJECTS.length);
+  const detailPrev = () => setDetailIdx((i) => (i - 1 + PROJECTS.length) % PROJECTS.length);
+  const detailNext = () => setDetailIdx((i) => (i + 1) % PROJECTS.length);
+  const openDetails = () => {
+    setDetailIdx(idx);
+    setTimeout(() => {
+      document.getElementById("detail")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 30);
+  };
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
 
   useEffect(() => {
     if (paused) return;
