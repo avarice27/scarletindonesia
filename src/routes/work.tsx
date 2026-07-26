@@ -351,8 +351,9 @@ function WorkPage() {
           </div>
         </div>
         <div className="text-center mt-10">
-          <a href="#detail" className="btn-pill btn-pill-outline">See Details ↓</a>
+          <button onClick={openDetails} className="btn-pill btn-pill-outline">See Details ↓</button>
         </div>
+
       </section>
 
       <TickerTape items={["KOL & Influencer", "Booth Production", "Merchandise", "Digital", "Field Team", "Branding"]} />
