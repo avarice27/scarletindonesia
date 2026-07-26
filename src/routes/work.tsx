@@ -52,30 +52,68 @@ export const Route = createFileRoute("/work")({
 
 const PROJECTS = [
   {
+    id: "coty-mha",
     title: "COTY MHA Event PIM 2024",
+    label: "Beauty Event · COTY",
+    heading: "COTY MHA Event",
+    headingAccent: "PIM 2024",
+    description: "Details coming soon.",
+    tags: ["Beauty Event", "Product Trial", "Retail Activation", "In-store Experience"],
     images: [coty1.url, coty2.url, coty3.url],
   },
   {
+    id: "ikea-range-day",
     title: "IKEA Range Day — FY27",
+    label: "Corporate Event · IKEA",
+    heading: "IKEA Range Day",
+    headingAccent: "FY27",
+    description: "Details coming soon.",
+    tags: ["Corporate Event", "Product Launch", "Retail Preview", "Stakeholder Experience"],
     images: [ikea1.url, ikea2.url, ikea3.url],
   },
   {
+    id: "guardian-beauty",
     title: "Guardian Wellness Journey — Beauty Experience",
+    label: "Wellness Activation · Guardian",
+    heading: "Guardian Wellness Journey",
+    headingAccent: "Beauty Experience",
+    description: "Details coming soon.",
+    tags: ["Wellness", "Beauty Experience", "Live Demo", "Retail Activation"],
     images: [gb1.url, gb2.url, gb3.url],
   },
   {
+    id: "guardian-padel",
     title: "Guardian Wellness Journey — Padel",
+    label: "Sport Activation · Guardian",
+    heading: "Guardian Wellness Journey",
+    headingAccent: "Padel",
+    description: "Details coming soon.",
+    tags: ["Wellness", "Sport Activation", "Community", "Tournament"],
     images: [gp1.url, gp2.url, gp3.url],
   },
   {
+    id: "bvlgari-omnia",
     title: "BVLGARI — OMNIA Crystalline Launch Event",
+    label: "Luxury Launch · BVLGARI",
+    heading: "BVLGARI OMNIA Crystalline",
+    headingAccent: "Launch Event",
+    description: "Details coming soon.",
+    tags: ["Luxury Launch", "Fragrance", "VIP Experience", "Product Reveal"],
     images: [bv1.url, bv2.url, bv3.url],
   },
   {
+    id: "kylie-launch",
     title: "Kylie Cosmetics Grand Launch Event",
+    label: "Beauty Launch · Kylie Cosmetics",
+    heading: "Kylie Cosmetics",
+    headingAccent: "Grand Launch",
+    description: "Details coming soon.",
+    tags: ["Beauty Launch", "KOL Activation", "Retail Debut", "Media Event"],
     images: [ky1.url, ky2.url, ky3.url],
   },
 ];
+
+
 
 
 const BRAND_LIST: { name: string; file: string }[] = [
