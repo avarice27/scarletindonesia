@@ -52,30 +52,68 @@ export const Route = createFileRoute("/work")({
 
 const PROJECTS = [
   {
+    id: "coty-mha",
     title: "COTY MHA Event PIM 2024",
+    label: "Beauty Event · COTY",
+    heading: "COTY MHA Event",
+    headingAccent: "PIM 2024",
+    description: "Details coming soon.",
+    tags: ["Beauty Event", "Product Trial", "Retail Activation", "In-store Experience"],
     images: [coty1.url, coty2.url, coty3.url],
   },
   {
+    id: "ikea-range-day",
     title: "IKEA Range Day — FY27",
+    label: "Corporate Event · IKEA",
+    heading: "IKEA Range Day",
+    headingAccent: "FY27",
+    description: "Details coming soon.",
+    tags: ["Corporate Event", "Product Launch", "Retail Preview", "Stakeholder Experience"],
     images: [ikea1.url, ikea2.url, ikea3.url],
   },
   {
+    id: "guardian-beauty",
     title: "Guardian Wellness Journey — Beauty Experience",
+    label: "Wellness Activation · Guardian",
+    heading: "Guardian Wellness Journey",
+    headingAccent: "Beauty Experience",
+    description: "Details coming soon.",
+    tags: ["Wellness", "Beauty Experience", "Live Demo", "Retail Activation"],
     images: [gb1.url, gb2.url, gb3.url],
   },
   {
+    id: "guardian-padel",
     title: "Guardian Wellness Journey — Padel",
+    label: "Sport Activation · Guardian",
+    heading: "Guardian Wellness Journey",
+    headingAccent: "Padel",
+    description: "Details coming soon.",
+    tags: ["Wellness", "Sport Activation", "Community", "Tournament"],
     images: [gp1.url, gp2.url, gp3.url],
   },
   {
+    id: "bvlgari-omnia",
     title: "BVLGARI — OMNIA Crystalline Launch Event",
+    label: "Luxury Launch · BVLGARI",
+    heading: "BVLGARI OMNIA Crystalline",
+    headingAccent: "Launch Event",
+    description: "Details coming soon.",
+    tags: ["Luxury Launch", "Fragrance", "VIP Experience", "Product Reveal"],
     images: [bv1.url, bv2.url, bv3.url],
   },
   {
+    id: "kylie-launch",
     title: "Kylie Cosmetics Grand Launch Event",
+    label: "Beauty Launch · Kylie Cosmetics",
+    heading: "Kylie Cosmetics",
+    headingAccent: "Grand Launch",
+    description: "Details coming soon.",
+    tags: ["Beauty Launch", "KOL Activation", "Retail Debut", "Media Event"],
     images: [ky1.url, ky2.url, ky3.url],
   },
 ];
+
+
 
 
 const BRAND_LIST: { name: string; file: string }[] = [
@@ -224,10 +262,21 @@ function BrandLogo({ name, domain, logoUrl, eager }: { name: string; domain?: st
 function WorkPage() {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [detailIdx, setDetailIdx] = useState(0);
   const project = PROJECTS[idx];
+  const detail = PROJECTS[detailIdx];
   const prev = () => setIdx((i) => (i - 1 + PROJECTS.length) % PROJECTS.length);
   const next = () => setIdx((i) => (i + 1) % PROJECTS.length);
+  const detailPrev = () => setDetailIdx((i) => (i - 1 + PROJECTS.length) % PROJECTS.length);
+  const detailNext = () => setDetailIdx((i) => (i + 1) % PROJECTS.length);
+  const openDetails = () => {
+    setDetailIdx(idx);
+    setTimeout(() => {
+      document.getElementById("detail")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 30);
+  };
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
 
   useEffect(() => {
     if (paused) return;
@@ -302,62 +351,70 @@ function WorkPage() {
           </div>
         </div>
         <div className="text-center mt-10">
-          <a href="#detail" className="btn-pill btn-pill-outline">See Details ↓</a>
+          <button onClick={openDetails} className="btn-pill btn-pill-outline">See Details ↓</button>
         </div>
+
       </section>
 
       <TickerTape items={["KOL & Influencer", "Booth Production", "Merchandise", "Digital", "Field Team", "Branding"]} />
 
-      {/* Project Detail 1 */}
-      <section id="detail" className="py-20 md:py-28 px-6 md:px-12">
+      {/* Project Details — dynamic */}
+      <section id="detail" className="py-20 md:py-28 px-6 md:px-12 scroll-mt-24">
         <div className="max-w-[1300px] mx-auto">
-          <span className="sec-label">Mobile Activation · Guardian</span>
-          <div className="grid md:grid-cols-2 gap-4 mt-6">
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1556228852-80b6e5eeff06?w=1200&q=80" alt="" className="w-full h-full object-cover" style={{ filter: "saturate(1.2) hue-rotate(-5deg)" }} />
-            </div>
-            <div className="grid grid-rows-2 gap-4">
-              <div className="rounded-3xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=1200&q=80" alt="" className="w-full h-full object-cover" />
-              </div>
-              <div className="rounded-3xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1556909114-44e3e7034e25?w=1200&q=80" alt="" className="w-full h-full object-cover" />
-              </div>
+          <div className="flex items-center justify-between gap-6 flex-wrap mb-8">
+            <span className="sec-label">{detail.label}</span>
+            <div className="flex items-center gap-3">
+              <span className="font-display text-xs tracking-[0.2em] uppercase text-ink/60 tabular-nums">
+                {String(detailIdx + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}
+              </span>
+              <button
+                onClick={detailPrev}
+                aria-label="Previous project details"
+                className="w-11 h-11 rounded-full border-2 border-ink/30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition flex items-center justify-center"
+              >
+                ‹
+              </button>
+              <button
+                onClick={detailNext}
+                aria-label="Next project details"
+                className="w-11 h-11 rounded-full border-2 border-ink/30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition flex items-center justify-center"
+              >
+                ›
+              </button>
             </div>
           </div>
-          <h3 className="mt-10 font-display font-semibold" style={{ fontSize: "clamp(28px, 3.5vw, 44px)" }}>
-            Guardian Raya <em className="italic-red">On the Go</em>
-          </h3>
-          <p className="mt-4 max-w-3xl text-ink/75">
-            A mobile truck activation that brought a full Guardian shopping experience to Blok M throughout the Ramadan season — turning a busy district into Guardian's mobile storefront, with product trials, exclusive Raya promos, instant rewards, and on-site purchase all in one stop.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {["Product Trial", "Raya Promos", "Games & Rewards", "On-site Purchase"].map((t) => (
-              <span key={t} className="btn-pill btn-pill-outline text-xs uppercase tracking-wider">{t}</span>
-            ))}
+
+          <div key={`detail-${detailIdx}`} className="animate-fade-in">
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-paper">
+                <img src={detail.images[0]} alt={detail.title} className="w-full h-full object-cover" />
+              </div>
+              <div className="grid grid-rows-2 gap-4">
+                <div className="rounded-3xl overflow-hidden bg-paper">
+                  <img src={detail.images[1]} alt={detail.title} className="w-full h-full object-cover" />
+                </div>
+                <div className="rounded-3xl overflow-hidden bg-paper">
+                  <img src={detail.images[2]} alt={detail.title} className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </div>
+            <h3 className="mt-10 font-display font-semibold" style={{ fontSize: "clamp(28px, 3.5vw, 44px)" }}>
+              {detail.heading}{" "}
+              {detail.headingAccent && <em className="italic-red">{detail.headingAccent}</em>}
+            </h3>
+            <p className="mt-4 max-w-3xl text-ink/75 whitespace-pre-line">
+              {detail.description}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {detail.tags.map((t) => (
+                <span key={t} className="btn-pill btn-pill-outline text-xs uppercase tracking-wider">{t}</span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Project Detail 2 */}
-      <section className="relative min-h-[600px] flex items-center px-6 md:px-12 py-20 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=1800&q=80" alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-ink/65" />
-        <div className="relative z-10 max-w-[1100px] mx-auto text-bone reveal">
-          <span className="sec-label" style={{ color: "var(--primary-glow)" }}>Beauty Launch · Aeris × Guardian</span>
-          <h3 className="mt-4 font-display font-semibold leading-tight" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
-            Glow In Merlot with <em className="italic" style={{ color: "var(--primary-glow)" }}>Bubah Alfian</em>
-          </h3>
-          <p className="mt-5 max-w-2xl text-bone/85">
-            A beauty collaboration launch between Aeris Beauté and Guardian at Grand Indonesia, headlined by an exclusive makeup session with Bubah Alfian to drive launch awareness, engagement, and product desirability.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            {["Product Launch", "Live Beauty Demo", "KOL: Bubah Alfian", "Exclusive Product Trial"].map((t) => (
-              <span key={t} className="btn-pill text-xs uppercase tracking-wider" style={{ background: "var(--primary)", color: "var(--primary-foreground)" }}>{t}</span>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Trusted By */}
       <section className="py-20 md:py-28 px-6 md:px-12 bg-paper">
